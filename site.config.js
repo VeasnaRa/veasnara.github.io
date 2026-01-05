@@ -98,7 +98,7 @@ module.exports = {
     {
       type: "blog",           // Type of content to display (matches folder name in content/)
       title: "Latest Posts",  // Section title
-      count: 1,              // Number of items to show
+      count: 3,              // Number of items to show
       showViewAll: true,     // Show "View All" button
       viewAllText: "View All Posts",
       viewAllLink: "/blog"
