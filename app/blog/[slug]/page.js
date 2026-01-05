@@ -4,6 +4,7 @@ import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { notFound } from 'next/navigation'
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import rehypeKatex from 'rehype-katex'
@@ -25,9 +26,17 @@ export async function generateStaticParams() {
     }))
 }
 
+export const dynamicParams = false
+
 export default async function BlogPost({ params }) {
   const { slug } = await params
   const filePath = path.join(process.cwd(), 'content/blog', `${slug}.md`)
+
+  // Check if file exists, if not show 404
+  if (!fs.existsSync(filePath)) {
+    notFound()
+  }
+
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(fileContents)
 

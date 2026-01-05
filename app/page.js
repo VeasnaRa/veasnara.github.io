@@ -1,11 +1,15 @@
 import Link from 'next/link'
-import { Mail, Briefcase, GraduationCap } from 'lucide-react'
+import { Mail, Briefcase, GraduationCap, ArrowRight } from 'lucide-react'
 import * as Icons from 'lucide-react'
 import siteConfig from "../site.config";
-import { getBlogPosts } from '../lib/markdown'
+import { getPageItems } from '../lib/markdown'
 
 export default function Home() {
-  const latestPosts = getBlogPosts().slice(0, 3)
+  // Get content for each home section based on config
+  const homeSections = siteConfig.homeSections.map(section => ({
+    ...section,
+    items: getPageItems(section.type).slice(0, section.count)
+  }))
 
   return (
     <div className="w-full bg-white dark:bg-slate-950">
@@ -125,40 +129,60 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Latest Updates Section */}
-          <section className="space-y-5">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Latest Updates</h2>
-
-            <div className="space-y-4">
-              {latestPosts.map(post => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group block"
-                >
-                  <article className="p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between gap-4">
-                        <h3 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
-                          {post.title}
-                        </h3>
-                        <time className="text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">{post.date}</time>
-                      </div>
-                      {post.excerpt && (
-                        <p className="text-sm text-gray-600 dark:text-slate-400 line-clamp-2">{post.excerpt}</p>
-                      )}
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-
-            {latestPosts.length === 0 && (
-              <div className="text-center py-8 text-gray-500 dark:text-slate-400">
-                <p className="text-sm">No posts yet.</p>
+          {/* Dynamic Content Sections */}
+          {homeSections.map((section, sectionIndex) => (
+            <section key={sectionIndex} className="space-y-5">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{section.title}</h2>
+                {section.showViewAll && section.items.length > 0 && (
+                  <Link
+                    href={section.viewAllLink}
+                    className="inline-flex items-center gap-1 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    {section.viewAllText}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
-            )}
-          </section>
+
+              <div className="space-y-4">
+                {section.items.map(item => (
+                  <Link
+                    key={item.slug}
+                    href={`/${section.type}/${item.slug}`}
+                    className="group block"
+                  >
+                    <article className="p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between gap-4">
+                          <h3 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
+                            {item.title}
+                          </h3>
+                          {item.date && (
+                            <time className="text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">{item.date}</time>
+                          )}
+                        </div>
+                        {(item.excerpt || item.description) && (
+                          <p className="text-sm text-gray-600 dark:text-slate-400 line-clamp-2">
+                            {item.excerpt || item.description}
+                          </p>
+                        )}
+                        {item.tech && (
+                          <p className="text-xs text-slate-500 dark:text-slate-500 italic">{item.tech}</p>
+                        )}
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+
+              {section.items.length === 0 && (
+                <div className="text-center py-8 text-gray-500 dark:text-slate-400">
+                  <p className="text-sm">No {section.type} yet.</p>
+                </div>
+              )}
+            </section>
+          ))}
 
         </main>
 

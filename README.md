@@ -132,9 +132,102 @@ The site includes automatic dark/light mode switching:
 
 ## Deploy to GitHub Pages
 
+### Option 1: Deploy to `username.github.io` (User/Organization Page)
+
+If you want your site at `https://username.github.io`:
+
+1. **Fork or clone this repository**
+2. **Rename the repository** to `username.github.io` (replace `username` with your GitHub username)
+3. **Update `next.config.mjs`** - Remove the basePath and assetPrefix:
+   ```javascript
+   const nextConfig = {
+     output: 'export',
+     // Remove or comment out these lines:
+     // basePath: process.env.NODE_ENV === 'production' ? '/Web-Blog' : '',
+     // assetPrefix: process.env.NODE_ENV === 'production' ? '/Web-Blog/' : '',
+     images: {
+       unoptimized: true,
+     },
+   };
+   ```
+4. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Source: GitHub Actions
+5. **Push your changes**:
+   ```bash
+   git add .
+   git commit -m "Configure for GitHub Pages"
+   git push
+   ```
+6. **Wait for deployment** - The GitHub Action will automatically build and deploy
+7. **Visit** `https://username.github.io`
+
+### Option 2: Deploy to `username.github.io/repo-name` (Project Page)
+
+If you want your site at `https://username.github.io/my-portfolio`:
+
+1. **Fork or clone this repository**
+2. **Update `next.config.mjs`** - Change the basePath to match your repo name:
+   ```javascript
+   const nextConfig = {
+     output: 'export',
+     basePath: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
+     assetPrefix: process.env.NODE_ENV === 'production' ? '/my-portfolio/' : '',
+     images: {
+       unoptimized: true,
+     },
+   };
+   ```
+3. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Source: GitHub Actions
+4. **Push your changes**:
+   ```bash
+   git add .
+   git commit -m "Configure for GitHub Pages"
+   git push
+   ```
+5. **Wait for deployment** - The GitHub Action will automatically build and deploy
+6. **Visit** `https://username.github.io/my-portfolio`
+
+### Manual Deployment
+
+If you prefer manual deployment:
+
 ```bash
+# Build the site
 npm run build
+
+# The static files are in the 'out' folder
+# Deploy the 'out' folder to any static hosting service
+```
+
+### Automatic Deployment
+
+The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically:
+- Builds your site when you push to `main` or `master` branch
+- Deploys to GitHub Pages
+- No manual build commands needed!
+
+Just edit your content, commit, and push:
+
+```bash
 git add .
-git commit -m "Update"
+git commit -m "Update content"
 git push
 ```
+
+### Troubleshooting
+
+**404 errors after deployment:**
+- Make sure the `basePath` in `next.config.mjs` matches your repository name
+- For `username.github.io`, remove the basePath entirely
+- For `username.github.io/repo-name`, set basePath to `/repo-name`
+
+**GitHub Actions failing:**
+- Check Settings → Pages → Source is set to "GitHub Actions"
+- Verify you have write permissions for GitHub Pages in repository settings
+
+**Images not loading:**
+- Make sure images are in the `public` folder
+- Use absolute paths: `/images/photo.jpg` not `./images/photo.jpg`

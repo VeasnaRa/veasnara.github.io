@@ -79,5 +79,36 @@ Currently, I'm working on projects that bridge the gap between theoretical resea
     }
     // Add more pages here as needed:
     // pagename: { mode: "grid", itemsPerPage: 9, columns: 3 }
-  }
+  },
+
+  // Home Page Content Configuration
+  // Configure what content sections appear on the home page
+  // Each section can show latest items from a specific page (blog, projects, etc.)
+  homeSections: [
+    {
+      type: "blog",           // Type of content to display (matches folder name in content/)
+      title: "Latest Posts",  // Section title
+      count: 1,              // Number of items to show
+      showViewAll: true,     // Show "View All" button
+      viewAllText: "View All Posts",
+      viewAllLink: "/blog"
+    },
+    {
+      type: "projects",
+      title: "Featured Projects",
+      count: 2,
+      showViewAll: true,
+      viewAllText: "View All Projects",
+      viewAllLink: "/projects"
+    }
+    // Add more sections as needed:
+    // {
+    //   type: "publications",
+    //   title: "Recent Publications",
+    //   count: 3,
+    //   showViewAll: true,
+    //   viewAllText: "View All Publications",
+    //   viewAllLink: "/publications"
+    // }
+  ]
 }
