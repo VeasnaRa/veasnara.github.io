@@ -4,6 +4,12 @@ import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import rehypePrettyCode from 'rehype-pretty-code'
+import TableOfContents from '../../../components/TableOfContents'
+import { mdxComponents } from '../../../components/MDXComponents'
+import Tags from '../../../components/Tags'
 
 export async function generateStaticParams() {
   const blogDirectory = path.join(process.cwd(), 'content/blog')
@@ -27,7 +33,7 @@ export default async function BlogPost({ params }) {
     : data.date
 
   return (
-    <article className="w-full bg-white dark:bg-slate-950">
+    <div className="w-full bg-white dark:bg-slate-950">
       <Link
         href="/blog"
         className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white mb-8 group transition-colors"
@@ -36,28 +42,54 @@ export default async function BlogPost({ params }) {
         Back to blog
       </Link>
 
-      <div className="space-y-8">
-        <header className="space-y-4">
-          <div className="inline-block rounded-lg bg-gray-100 dark:bg-slate-800 px-3 py-1 text-sm font-medium text-gray-900 dark:text-white">
-            Article
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
-            {data.title}
-          </h1>
-          {dateStr && (
-            <div className="flex items-center gap-2 text-gray-500 dark:text-slate-400">
-              <Calendar className="h-5 w-5" />
-              <time className="text-base">{dateStr}</time>
+      <div className="grid xl:grid-cols-[1fr_280px] gap-12">
+        <article className="min-w-0">
+          <div className="space-y-6">
+            <header className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="inline-block rounded-lg bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-900 dark:text-white">
+                  Article
+                </div>
+                {dateStr && (
+                  <div className="flex items-center gap-1.5 text-gray-500 dark:text-slate-400">
+                    <Calendar className="h-3.5 w-3.5" />
+                    <time className="text-sm">{dateStr}</time>
+                  </div>
+                )}
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
+                {data.title}
+              </h1>
+
+              {data.tags && <Tags tags={data.tags} />}
+            </header>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-slate-700 to-transparent"></div>
+
+            <div className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full">
+              <MDXRemote
+                source={content}
+                components={mdxComponents}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkMath],
+                    rehypePlugins: [
+                      rehypeKatex,
+                      [rehypePrettyCode, {
+                        theme: 'github-dark',
+                        keepBackground: false
+                      }]
+                    ]
+                  }
+                }}
+              />
             </div>
-          )}
-        </header>
+          </div>
+        </article>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-slate-700 to-transparent"></div>
-
-        <div className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full">
-          <MDXRemote source={content} />
-        </div>
+        <TableOfContents content={content} />
       </div>
-    </article>
+    </div>
   )
 }

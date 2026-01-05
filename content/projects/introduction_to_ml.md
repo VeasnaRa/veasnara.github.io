@@ -1,5 +1,9 @@
 ---
 title: "Introduction to Machine Learning"
+description: "A comprehensive introduction to machine learning concepts and applications"
+tags: [machine learning, AI, data science, python]
+thumbnail: "/images/introduction_to_ml.png"
+date: 2026-01-03
 ---
 
 ## What is Machine Learning?

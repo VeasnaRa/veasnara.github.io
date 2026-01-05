@@ -38,35 +38,47 @@ export default function PageRenderer({ items, mode, columns, pageName }) {
 
 function ItemCard({ item, pageName, mode }) {
   const isProject = item.demo || item.github
-  const isBlog = item.date
+  const isBlog = pageName === 'blog'
 
   // Blog/list style card
   if (mode === 'list' || isBlog) {
     return (
       <Link href={`/${pageName}/${item.slug}`} className="block group">
-        <article className="relative p-8 bg-white border-2 border-gray-200 rounded-2xl hover:border-gray-900 hover:shadow-xl transition-all duration-300">
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              {item.date && (
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Calendar className="h-4 w-4" />
-                  <time>{item.date}</time>
-                </div>
+        <article className="relative overflow-hidden bg-white border-2 border-gray-200 rounded-2xl hover:border-gray-900 hover:shadow-xl transition-all duration-300">
+          <div className="grid md:grid-cols-[200px_1fr] gap-6">
+            {item.thumbnail && (
+              <div className="relative w-full h-48 md:h-full bg-gray-100 overflow-hidden">
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
+
+            <div className={`p-8 space-y-3 ${!item.thumbnail ? 'md:col-span-2' : ''}`}>
+              <div className="flex items-center justify-between">
+                {item.date && (
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <Calendar className="h-4 w-4" />
+                    <time>{item.date}</time>
+                  </div>
+                )}
+                <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-2 transition-all" />
+              </div>
+
+              <h2 className="text-3xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
+                {item.title}
+              </h2>
+
+              {item.tech && (
+                <p className="text-sm text-gray-500 italic">{item.tech}</p>
               )}
-              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-2 transition-all" />
+
+              {(item.excerpt || item.description) && (
+                <p className="text-gray-600 line-clamp-2">{item.excerpt || item.description}</p>
+              )}
             </div>
-
-            <h2 className="text-3xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
-              {item.title}
-            </h2>
-
-            {item.tech && (
-              <p className="text-sm text-gray-500 italic">{item.tech}</p>
-            )}
-
-            {(item.excerpt || item.description) && (
-              <p className="text-gray-600 line-clamp-2">{item.excerpt || item.description}</p>
-            )}
           </div>
         </article>
       </Link>
@@ -75,36 +87,51 @@ function ItemCard({ item, pageName, mode }) {
 
   // Project/grid style card
   return (
-    <article className="group relative p-6 bg-white border-2 border-gray-200 rounded-2xl hover:border-gray-900 hover:shadow-xl transition-all duration-300">
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
+    <article className="group relative overflow-hidden bg-white border border-gray-200 rounded-xl hover:border-gray-900 hover:shadow-lg transition-all duration-300">
+      <Link href={`/${pageName}/${item.slug}`} className="block">
+        {item.thumbnail && (
+          <div className="relative w-full h-40 bg-gray-100 overflow-hidden">
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        )}
+
+        <div className="p-4 space-y-2">
+          <h2 className="text-lg font-bold text-gray-900 group-hover:text-gray-700 transition-colors line-clamp-2">
             {item.title}
           </h2>
-          {item.tech && (
-            <p className="text-sm text-gray-500 italic">{item.tech}</p>
-          )}
+
           {item.date && (
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <Calendar className="h-4 w-4" />
+            <div className="flex items-center gap-1.5 text-xs text-gray-500">
+              <Calendar className="h-3 w-3" />
               <time>{item.date}</time>
             </div>
           )}
+
+          {(item.description || item.excerpt) && (
+            <p className="text-sm text-gray-600 line-clamp-2">{item.description || item.excerpt}</p>
+          )}
+
+          {item.tech && (
+            <p className="text-xs text-gray-500 italic">{item.tech}</p>
+          )}
         </div>
+      </Link>
 
-        {(item.description || item.excerpt) && (
-          <p className="text-gray-600">{item.description || item.excerpt}</p>
-        )}
-
-        <div className="flex gap-3 pt-2 flex-wrap">
+      {(item.demo || item.github) && (
+        <div className="px-4 pb-4 flex gap-2">
           {item.demo && (
             <a
               href={item.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-xs font-medium"
             >
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-3 w-3" />
               Demo
             </a>
           )}
@@ -113,23 +140,15 @@ function ItemCard({ item, pageName, mode }) {
               href={item.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-xs font-medium"
             >
-              <Github className="h-4 w-4" />
+              <Github className="h-3 w-3" />
               Code
             </a>
           )}
-          {!item.demo && !item.github && (
-            <Link
-              href={`/${pageName}/${item.slug}`}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
-            >
-              Read More
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          )}
         </div>
-      </div>
+      )}
     </article>
   )
 }

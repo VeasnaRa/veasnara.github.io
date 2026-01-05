@@ -151,10 +151,17 @@ body.dark {
   color: #e5e7eb;
   border-radius: 0.75rem;
   padding: 1.5rem 1.75rem;
+  padding-top: 3rem;
   overflow-x: auto;
   margin-top: 1.7142857em;
   margin-bottom: 1.7142857em;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #374151;
+}
+
+.dark .prose pre {
+  background: #0f172a;
+  border-color: #1e293b;
 }
 
 .prose pre code {
@@ -164,6 +171,37 @@ body.dark {
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
+}
+
+/* Syntax highlighting enhancements */
+.prose pre > code {
+  display: grid;
+  counter-reset: line;
+}
+
+.prose pre > code > [data-line] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.prose pre > code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: #6b7280;
+}
+
+.dark .prose pre > code[data-line-numbers] > [data-line]::before {
+  color: #475569;
+}
+
+.prose pre > code [data-highlighted-line] {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  padding-left: calc(1rem - 3px);
 }
 
 .prose blockquote {
