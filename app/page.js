@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <div className="grid lg:grid-cols-[320px_1fr] gap-12 py-8">
+      <div className="grid lg:grid-cols-[320px_1fr] gap-12">
 
         {/* LEFT SIDEBAR */}
         <aside className="space-y-6">

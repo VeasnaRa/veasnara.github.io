@@ -101,7 +101,7 @@ export default async function DynamicPageRoute({ params }) {
 
   return (
     <div className="w-full">
-      <div className="space-y-10 py-4">
+      <div className="space-y-10">
         <header className="space-y-4">
           <div className="inline-block rounded-lg bg-gray-100 dark:bg-slate-800 px-3 py-1 text-sm font-medium text-gray-900 dark:text-white">
             {page.charAt(0).toUpperCase() + page.slice(1)}

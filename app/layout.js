@@ -84,17 +84,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen transition-colors`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <SearchWrapper allContent={allContent}>
+          <div className="flex flex-col min-h-screen transition-colors">
+            <SearchWrapper allContent={allContent} />
             <main className="flex-1 w-full">
-              <div className="mx-auto max-w-6xl px-6 py-8">
+              <div className="mx-auto max-w-6xl px-6 pt-6 pb-6">
                 {children}
               </div>
             </main>
             <Footer />
-          </SearchWrapper>
+          </div>
         </ThemeProvider>
       </body>
     </html>
