@@ -1,42 +1,39 @@
 module.exports = {
   // Site metadata
-  name: "Chonky Cat",
-  title: "Chonky Portfolio",
-  description: "Welcome to my chonky website",
+  name: "Chonky Meow",
+  title: "Chonky",
+  description: "Bonjour to my chonky website",
 
   // Profile picture (optional)
   // Place your image in public/images/ folder (e.g., public/images/profile.jpg)
   // Then set: profileImage: "/images/profile.jpg"
   // Leave as null to show initial letter instead
-  profileImage: "/images/profile.png",
+  profileImage: "/images/chonk.jpg",
 
   // Current role and affiliation
-  role: "PhD Student",
-  affiliation: "Stanford University",
+  role: "Master Student",
+  affiliation: "Paris University",
 
   // Short bio for hero section
   tagline: "Researcher, Developer & Open Source Enthusiast",
 
   // Longer introduction for about section (supports markdown)
-  introduction: `I'm a passionate researcher and developer with a deep interest in advancing the field of machine learning and artificial intelligence. My work focuses on exploring the mathematical foundations of large language models and building accessible web technologies.
-
-Currently, I'm working on projects that bridge the gap between theoretical research and practical applications, with a particular emphasis on making complex AI concepts more understandable and accessible to the broader community.`,
+  introduction: `I'm a passionate researcher and developer with a deep interest in advancing the field of machine learning and artificial intelligence. My work focuses on exploring the mathematical foundations of large language models and building accessible web technologies.`,
 
   // Research interests or topics
   // You can use a string for plain text, or an object with { name, icon } to add lucide-react icon names
   interests: [
     { name: "Machine Learning", icon: "Brain" },
     { name: "Natural Language Processing", icon: "MessageSquare" },
-    { name: "Web Development", icon: "Code" },
-    { name: "UI/UX Design", icon: "Palette" }
+    { name: "AI Development", icon: "Code" },
   ],
 
   // Add/remove navigation items here
   navigation: [
     { title: "Home", path: "/" },
     { title: "CV", path: "/cv" },
-    { title: "Blog", path: "/blog" },
-    { title: "Projects", path: "/projects" }
+    { title: "My Share Blog", path: "/blog" },
+    { title: "My Projects", path: "/projects" }
   ],
 
   // Social links for footer
@@ -58,7 +55,7 @@ Currently, I'm working on projects that bridge the gap between theoretical resea
   //
   // Option 3: Leave as null to render from content/cv.md (markdown)
   // The markdown option provides the best SEO and accessibility
-  cvFile: "/cv/cv.png",
+  cvFile: null,
 
   // Page Display Configuration
   // Configure how each page should display content
@@ -73,7 +70,7 @@ Currently, I'm working on projects that bridge the gap between theoretical resea
       columns: 2             // For grid mode: 1, 2, 3, or 4 columns
     },
     blog: {
-      mode: "grid",          // "simple" | "grid" | "list"
+      mode: "list",          // "simple" | "grid" | "list"
       itemsPerPage: 6,       // For grid/list mode pagination
       columns: 4            // For grid mode: 1, 2, 3, or 4 columns
     }
