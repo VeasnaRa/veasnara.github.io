@@ -59,6 +59,19 @@ export default async function DynamicPost({ params }) {
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  // Check if htmlSource is specified in frontmatter
+  let htmlContent = null
+  if (data.htmlSource) {
+    const htmlPath = path.join(process.cwd(), 'public', data.htmlSource)
+    if (fs.existsSync(htmlPath)) {
+      htmlContent = fs.readFileSync(htmlPath, 'utf8')
+    }
+  }
+
+  // Get CSS and JS files from frontmatter
+  const cssFiles = data.cssFiles || []
+  const jsFiles = data.jsFiles || []
+
   const dateStr = data.date instanceof Date
     ? data.date.toLocaleDateString()
     : data.date
@@ -131,29 +144,48 @@ export default async function DynamicPost({ params }) {
 
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-slate-700 to-transparent"></div>
 
-            <div className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full">
-              <MDXRemote
-                source={content}
-                components={mdxComponents}
-                options={{
-                  mdxOptions: {
-                    remarkPlugins: [remarkMath, remarkGfm],
-                    rehypePlugins: [
-                      rehypeSlug,
-                      [rehypeAutolinkHeadings, {
-                        behavior: 'wrap',
-                        properties: { className: ['anchor'] }
-                      }],
-                      rehypeKatex,
-                      [rehypePrettyCode, {
-                        theme: 'github-dark',
-                        keepBackground: false
-                      }]
-                    ]
-                  }
-                }}
-              />
-            </div>
+            {htmlContent ? (
+              <>
+                {/* Load custom CSS files */}
+                {cssFiles.length > 0 && cssFiles.map((cssFile, index) => (
+                  <link key={index} rel="stylesheet" href={cssFile} />
+                ))}
+
+                <div
+                  className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full"
+                  dangerouslySetInnerHTML={{ __html: htmlContent }}
+                />
+
+                {/* Load custom JS files */}
+                {jsFiles.length > 0 && jsFiles.map((jsFile, index) => (
+                  <script key={index} src={jsFile} async></script>
+                ))}
+              </>
+            ) : (
+              <div className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full">
+                <MDXRemote
+                  source={content}
+                  components={mdxComponents}
+                  options={{
+                    mdxOptions: {
+                      remarkPlugins: [remarkMath, remarkGfm],
+                      rehypePlugins: [
+                        rehypeSlug,
+                        [rehypeAutolinkHeadings, {
+                          behavior: 'wrap',
+                          properties: { className: ['anchor'] }
+                        }],
+                        rehypeKatex,
+                        [rehypePrettyCode, {
+                          theme: 'github-dark',
+                          keepBackground: false
+                        }]
+                      ]
+                    }
+                  }}
+                />
+              </div>
+            )}
           </div>
         </article>
 

@@ -1,0 +1,256 @@
+<style>
+  /* Custom styles for Mars Journey - All in one file */
+  .timeline-container {
+    position: relative;
+  }
+
+  .timeline-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+  .stat-card {
+    animation: scaleIn 0.5s ease forwards;
+    opacity: 0;
+    transform: scale(0.8);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0.2s; }
+  .stat-card:nth-child(2) { animation-delay: 0.3s; }
+  .stat-card:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Smooth gradient animation */
+  .stat-card {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite, scaleIn 0.5s ease forwards;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    .timeline-item {
+      padding-left: 1.5rem !important;
+    }
+
+    .timeline-dot {
+      left: -0.5rem !important;
+    }
+  }
+</style>
+
+<h2>The Journey to Mars: A Timeline</h2>
+
+<p>Humanity's quest to reach Mars has been one of the most ambitious endeavors in space exploration. This interactive timeline showcases the major milestones in our journey to the Red Planet.</p>
+
+<div class="timeline-container" style="margin: 3rem 0;">
+  <div class="timeline-item" style="margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #ef4444; position: relative;">
+    <div class="timeline-dot" style="position: absolute; left: -0.6rem; top: 0.5rem; width: 1rem; height: 1rem; background: #ef4444; border-radius: 50%;"></div>
+    <h3 style="margin-top: 0;">1960s - Early Dreams</h3>
+    <p>The Soviet Union's Mars program begins with several flyby missions. Mariner 4 becomes the first spacecraft to successfully fly by Mars in 1965, sending back the first close-up images of another planet.</p>
+  </div>
+
+  <div class="timeline-item" style="margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #f59e0b; position: relative;">
+    <div class="timeline-dot" style="position: absolute; left: -0.6rem; top: 0.5rem; width: 1rem; height: 1rem; background: #f59e0b; border-radius: 50%;"></div>
+    <h3 style="margin-top: 0;">1970s - Viking Landings</h3>
+    <p>NASA's Viking 1 and Viking 2 missions successfully land on Mars in 1976, becoming the first spacecraft to operate on the Martian surface for extended periods. They sent back stunning images and conducted experiments searching for signs of life.</p>
+  </div>
+
+  <div class="timeline-item" style="margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #10b981; position: relative;">
+    <div class="timeline-dot" style="position: absolute; left: -0.6rem; top: 0.5rem; width: 1rem; height: 1rem; background: #10b981; border-radius: 50%;"></div>
+    <h3 style="margin-top: 0;">1990s-2000s - Modern Exploration</h3>
+    <p>Mars Pathfinder and its Sojourner rover land in 1997, demonstrating new landing technologies. Spirit and Opportunity rovers land in 2004, far exceeding their planned 90-day missions with Opportunity operating until 2018.</p>
+  </div>
+
+  <div class="timeline-item" style="margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #3b82f6; position: relative;">
+    <div class="timeline-dot" style="position: absolute; left: -0.6rem; top: 0.5rem; width: 1rem; height: 1rem; background: #3b82f6; border-radius: 50%;"></div>
+    <h3 style="margin-top: 0;">2012 - Curiosity's Landing</h3>
+    <p>The Curiosity rover, the largest and most capable rover at the time, successfully lands using the revolutionary sky crane system. It continues to explore Gale Crater, studying Mars' climate and geology.</p>
+  </div>
+
+  <div class="timeline-item" style="margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #8b5cf6; position: relative;">
+    <div class="timeline-dot" style="position: absolute; left: -0.6rem; top: 0.5rem; width: 1rem; height: 1rem; background: #8b5cf6; border-radius: 50%;"></div>
+    <h3 style="margin-top: 0;">2021 - Perseverance & Ingenuity</h3>
+    <p>NASA's Perseverance rover lands with the Ingenuity helicopter, which becomes the first aircraft to achieve powered flight on another planet. Perseverance begins collecting samples for future return to Earth.</p>
+  </div>
+</div>
+
+<div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0;">
+  <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 1rem; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+    <div style="font-size: 3rem; font-weight: bold;">54.6M</div>
+    <div style="font-size: 0.875rem; opacity: 0.9;">km - Average distance to Mars</div>
+  </div>
+
+  <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 2rem; border-radius: 1rem; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+    <div style="font-size: 3rem; font-weight: bold;">687</div>
+    <div style="font-size: 0.875rem; opacity: 0.9;">Earth days in one Mars year</div>
+  </div>
+
+  <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 2rem; border-radius: 1rem; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+    <div style="font-size: 3rem; font-weight: bold;">5</div>
+    <div style="font-size: 0.875rem; opacity: 0.9;">Active rovers currently on Mars</div>
+  </div>
+</div>
+
+<h3>Why Mars?</h3>
+
+<div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+  <div class="feature-card" style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; transition: all 0.3s;">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+    <h4 style="margin: 0.5rem 0;">Scientific Discovery</h4>
+    <p>Mars provides insights into planetary formation, climate change, and the potential for past or present life beyond Earth.</p>
+  </div>
+
+  <div class="feature-card" style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; transition: all 0.3s;">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+    <h4 style="margin: 0.5rem 0;">Future Colonization</h4>
+    <p>Mars is the most viable candidate for human settlement, with a day length similar to Earth and evidence of water ice.</p>
+  </div>
+
+  <div class="feature-card" style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; transition: all 0.3s;">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+    <h4 style="margin: 0.5rem 0;">Planetary Protection</h4>
+    <p>Studying Mars helps us understand Earth's past and future, including climate patterns and geological processes.</p>
+  </div>
+</div>
+
+<blockquote style="border-left: 4px solid #3b82f6; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #6b7280;">
+  "Mars has been flown by, orbited, smashed into, radar examined, and rocketed onto, as well as bounced upon, rolled over, shoveled, drilled into, baked and even blasted. Still to come: Mars being stepped on."
+  <footer style="margin-top: 0.5rem; font-style: normal; font-weight: 600;">— Buzz Aldrin</footer>
+</blockquote>
+
+<h3>Interactive Mars Facts</h3>
+
+<div id="mars-comparison" style="background: linear-gradient(to right, #1e293b, #334155); padding: 2rem; border-radius: 1rem; margin: 2rem 0; color: white;">
+  <h4 style="margin-top: 0; color: white;">Earth vs Mars Comparison</h4>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+    <div>
+      <div style="font-weight: 600; color: #60a5fa;">Gravity</div>
+      <div>Earth: 9.8 m/s²</div>
+      <div style="opacity: 0.8;">Mars: 3.7 m/s²</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; color: #60a5fa;">Temperature</div>
+      <div>Earth: 15°C avg</div>
+      <div style="opacity: 0.8;">Mars: -63°C avg</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; color: #60a5fa;">Day Length</div>
+      <div>Earth: 24 hours</div>
+      <div style="opacity: 0.8;">Mars: 24.6 hours</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; color: #60a5fa;">Atmosphere</div>
+      <div>Earth: 78% N₂</div>
+      <div style="opacity: 0.8;">Mars: 95% CO₂</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .feature-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Dark mode adjustments */
+  html.dark .feature-card {
+    border-color: #475569;
+    background: rgba(30, 41, 59, 0.5);
+  }
+
+  html.dark .feature-card:hover {
+    border-color: #60a5fa;
+    background: rgba(30, 41, 59, 0.8);
+  }
+</style>
+
+<script>
+  // Simple animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.timeline-item, .stat-card, .feature-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
