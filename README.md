@@ -8,17 +8,6 @@ Static website for portfolio, blog, and CV with **dark mode support**! 🌙
 npm install
 npm run dev
 ```
-
-## Features
-
-✨ **Content-driven** - All pages generated from markdown files
-🌓 **Dark Mode** - Automatic theme switching with system preference
-🔍 **Built-in Search** - Search across all content with keyboard shortcuts
-📱 **Responsive** - Mobile-first design with beautiful UI
-⚡ **Fast** - Static site generation with Next.js 15
-🎨 **Customizable** - Easy configuration through `site.config.js`
-♿ **Accessible** - SEO-friendly with proper semantic HTML
-
 ## How to Use
 
 ### Configure Site
