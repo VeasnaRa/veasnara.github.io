@@ -1,8 +1,8 @@
 module.exports = {
   // Site metadata
-  name: "Chonky Orange",
-  title: "My Portfolio",
-  description: "Welcome to my personal website",
+  name: "Chonky Cat",
+  title: "Chonky Portfolio",
+  description: "Welcome to my chonky website",
 
   // Profile picture (optional)
   // Place your image in public/images/ folder (e.g., public/images/profile.jpg)
@@ -73,9 +73,9 @@ Currently, I'm working on projects that bridge the gap between theoretical resea
       columns: 2             // For grid mode: 1, 2, 3, or 4 columns
     },
     blog: {
-      mode: "list",          // "simple" | "grid" | "list"
+      mode: "grid",          // "simple" | "grid" | "list"
       itemsPerPage: 6,       // For grid/list mode pagination
-      columns: 4             // For grid mode: 1, 2, 3, or 4 columns
+      columns: 4            // For grid mode: 1, 2, 3, or 4 columns
     }
     // Add more pages here as needed:
     // pagename: { mode: "grid", itemsPerPage: 9, columns: 3 }

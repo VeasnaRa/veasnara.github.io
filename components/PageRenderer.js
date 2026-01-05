@@ -38,10 +38,9 @@ export default function PageRenderer({ items, mode, columns, pageName }) {
 
 function ItemCard({ item, pageName, mode }) {
   const isProject = item.demo || item.github
-  const isBlog = pageName === 'blog'
 
-  // Blog/list style card
-  if (mode === 'list' || isBlog) {
+  // List style card
+  if (mode === 'list') {
     return (
       <Link href={`/${pageName}/${item.slug}`} className="block group">
         <article className="relative overflow-hidden bg-white border-2 border-gray-200 rounded-2xl hover:border-gray-900 hover:shadow-xl transition-all duration-300">
