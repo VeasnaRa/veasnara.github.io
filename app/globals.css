@@ -169,11 +169,12 @@ body.dark {
   border-width: 0;
   padding: 0;
   color: inherit;
-  font-size: inherit;
+  font-size: 0.875rem;
   font-weight: inherit;
+  line-height: 1.7;
 }
 
-/* Syntax highlighting enhancements */
+/* Syntax highlighting */
 .prose pre > code {
   display: grid;
   counter-reset: line;

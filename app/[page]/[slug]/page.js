@@ -1,5 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { Calendar, ArrowLeft } from 'lucide-react'
+import { Calendar, ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
@@ -16,21 +16,40 @@ import { mdxComponents } from '../../../components/MDXComponents'
 import Tags from '../../../components/Tags'
 
 export async function generateStaticParams() {
-  const blogDirectory = path.join(process.cwd(), 'content/blog')
-  const files = fs.readdirSync(blogDirectory)
+  const contentDirectory = path.join(process.cwd(), 'content')
 
-  return files
-    .filter(file => file.endsWith('.md'))
-    .map(file => ({
-      slug: file.replace('.md', '')
-    }))
+  if (!fs.existsSync(contentDirectory)) {
+    return []
+  }
+
+  const folders = fs.readdirSync(contentDirectory, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
+
+  const allParams = []
+
+  for (const folder of folders) {
+    const folderPath = path.join(contentDirectory, folder)
+    const files = fs.readdirSync(folderPath)
+
+    const slugs = files
+      .filter(file => file.endsWith('.md'))
+      .map(file => ({
+        page: folder,
+        slug: file.replace('.md', '')
+      }))
+
+    allParams.push(...slugs)
+  }
+
+  return allParams
 }
 
 export const dynamicParams = false
 
-export default async function BlogPost({ params }) {
-  const { slug } = await params
-  const filePath = path.join(process.cwd(), 'content/blog', `${slug}.md`)
+export default async function DynamicPost({ params }) {
+  const { page, slug } = await params
+  const filePath = path.join(process.cwd(), 'content', page, `${slug}.md`)
 
   // Check if file exists, if not show 404
   if (!fs.existsSync(filePath)) {
@@ -47,11 +66,11 @@ export default async function BlogPost({ params }) {
   return (
     <div className="w-full bg-white dark:bg-slate-950">
       <Link
-        href="/blog"
+        href={`/${page}`}
         className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white mb-8 group transition-colors"
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-        Back to blog
+        Back to {page}
       </Link>
 
       <div className="grid xl:grid-cols-[1fr_280px] gap-12">
@@ -59,8 +78,8 @@ export default async function BlogPost({ params }) {
           <div className="space-y-6">
             <header className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="inline-block rounded-lg bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-900 dark:text-white">
-                  Article
+                <div className="inline-block rounded-lg bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-900 dark:text-white capitalize">
+                  {page}
                 </div>
                 {dateStr && (
                   <div className="flex items-center gap-1.5 text-gray-500 dark:text-slate-400">
@@ -74,7 +93,40 @@ export default async function BlogPost({ params }) {
                 {data.title}
               </h1>
 
-              {data.tags && <Tags tags={data.tags} />}
+              {data.tech && (
+                <p className="text-sm text-gray-500 dark:text-slate-400 italic">{data.tech}</p>
+              )}
+
+              {data.tags && (
+                <Tags tags={data.tags} />
+              )}
+
+              {(data.demo || data.github) && (
+                <div className="flex gap-3 pt-2">
+                  {data.demo && (
+                    <a
+                      href={data.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-gray-700 dark:hover:bg-slate-200 transition-colors text-sm font-medium"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
+                    </a>
+                  )}
+                  {data.github && (
+                    <a
+                      href={data.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors text-sm font-medium"
+                    >
+                      <Github className="h-4 w-4" />
+                      View Code
+                    </a>
+                  )}
+                </div>
+              )}
             </header>
 
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-slate-700 to-transparent"></div>

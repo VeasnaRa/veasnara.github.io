@@ -1,24 +1,40 @@
 module.exports = {
   // Site metadata
-  name: "Chonky Meow",
-  title: "Chonky",
+  name: "Chonky Cat",
+  title: "Chonky Site",
   description: "Bonjour to my chonky website",
+
+  // SEO & Metadata
+  siteUrl: "https://userwebsite.github.io", // Your site URL (for SEO)
+  author: "Chonky Cat", // Author name (for SEO)
+  keywords: ["portfolio", "blog", "machine learning", "AI"], // Keywords for SEO
+
+  // Favicon & Icons (optional - customize if needed)
+  // By default, Next.js uses app/favicon.ico automatically
+  // To customize, create icon files and update these paths:
+  // - favicon.ico (32x32 or 16x16) - Standard favicon
+  // - icon.png (512x512) - Modern browsers & PWA
+  // - apple-icon.png (180x180) - Apple devices
+  // You can place custom icons in public/ folder or use app/icon.png, app/apple-icon.png
+  favicon: "/images/favicon.ico", // Set to "/custom-favicon.ico" if using custom
+  icon: null,    // Set to "/icon.png" if using custom
+  appleIcon: null, // Set to "/apple-icon.png" if using custom
 
   // Profile picture (optional)
   // Place your image in public/images/ folder (e.g., public/images/profile.jpg)
   // Then set: profileImage: "/images/profile.jpg"
   // Leave as null to show initial letter instead
-  profileImage: "/images/chonk.jpg",
+  profileImage: "/images/profile.png",
 
   // Current role and affiliation
-  role: "Master Student",
-  affiliation: "Paris University",
+  role: "PhD Student",
+  affiliation: "Standford University",
 
   // Short bio for hero section
   tagline: "Researcher, Developer & Open Source Enthusiast",
 
   // Longer introduction for about section (supports markdown)
-  introduction: `I'm a passionate researcher and developer with a deep interest in advancing the field of machine learning and artificial intelligence. My work focuses on exploring the mathematical foundations of large language models and building accessible web technologies.`,
+  introduction: `I'm a passionate chonky cat researcher and developer with a deep interest in advancing the field of machine learning and artificial intelligence. My work focuses on exploring the mathematical foundations of large language models and building accessible web technologies.`,
 
   // Research interests or topics
   // You can use a string for plain text, or an object with { name, icon } to add lucide-react icon names
@@ -26,14 +42,17 @@ module.exports = {
     { name: "Machine Learning", icon: "Brain" },
     { name: "Natural Language Processing", icon: "MessageSquare" },
     { name: "AI Development", icon: "Code" },
+    { name: "Eating Fish", icon: "Fish"}
   ],
 
   // Add/remove navigation items here
+  // Optional: Add icon field with any Lucide React icon name
   navigation: [
-    { title: "Home", path: "/" },
-    { title: "CV", path: "/cv" },
-    { title: "My Share Blog", path: "/blog" },
-    { title: "My Projects", path: "/projects" }
+    { title: "Home", path: "/", icon: "Home" },
+    { title: "CV", path: "/cv", icon: "FileText" },
+    { title: "Blog", path: "/blog", icon: "BookOpen" },
+    { title: "Projects", path: "/projects", icon: "Code" },
+    { title: "Publications", path: "/publications", icon: "GraduationCap" }
   ],
 
   // Social links for footer
@@ -64,15 +83,20 @@ module.exports = {
   //   - itemsPerPage: number of items per page for pagination (only for grid/list)
   //   - columns: number of columns for grid mode (1, 2, 3, or 4)
   pages: {
+    blog: {
+      mode: "list",          // "simple" | "grid" | "list"
+      itemsPerPage: 6,       // For grid/list mode pagination
+      columns: 4            // For grid mode: 1, 2, 3, or 4 columns
+    },
     projects: {
       mode: "grid",          // "simple" | "grid" | "list"
       itemsPerPage: 12,      // For grid/list mode pagination
       columns: 2             // For grid mode: 1, 2, 3, or 4 columns
     },
-    blog: {
-      mode: "list",          // "simple" | "grid" | "list"
-      itemsPerPage: 6,       // For grid/list mode pagination
-      columns: 4            // For grid mode: 1, 2, 3, or 4 columns
+    publications: {
+      mode: "grid",          // "simple" | "grid" | "list"
+      itemsPerPage: 9,       // For grid/list mode pagination
+      columns: 2             // For grid mode: 1, 2, 3, or 4 columns
     }
     // Add more pages here as needed:
     // pagename: { mode: "grid", itemsPerPage: 9, columns: 3 }
@@ -93,19 +117,19 @@ module.exports = {
     {
       type: "projects",
       title: "Featured Projects",
-      count: 2,
+      count: 1,
       showViewAll: true,
       viewAllText: "View All Projects",
       viewAllLink: "/projects"
-    }
+    },
     // Add more sections as needed:
-    // {
-    //   type: "publications",
-    //   title: "Recent Publications",
-    //   count: 3,
-    //   showViewAll: true,
-    //   viewAllText: "View All Publications",
-    //   viewAllLink: "/publications"
-    // }
+    {
+      type: "publications",
+      title: "Recent Publications",
+      count: 3,
+      showViewAll: true,
+      viewAllText: "View All Publications",
+      viewAllLink: "/publications"
+    }
   ]
 }
