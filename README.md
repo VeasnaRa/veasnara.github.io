@@ -475,8 +475,12 @@ If you want your site at `https://username.github.io`:
    };
    ```
 4. **Enable GitHub Pages**:
-   - Go to repository Settings → Pages
-   - Source: GitHub Actions
+   - Go to your repository on GitHub
+   - Click **Settings** (top menu)
+   - Click **Pages** (left sidebar)
+   - Under "Build and deployment":
+     - **Source**: Select **"GitHub Actions"** from the dropdown
+     - (NOT "Deploy from a branch" - make sure to select GitHub Actions!)
 5. **Push your changes**:
    ```bash
    git add .
@@ -503,8 +507,12 @@ If you want your site at `https://username.github.io/my-portfolio`:
    };
    ```
 3. **Enable GitHub Pages**:
-   - Go to repository Settings → Pages
-   - Source: GitHub Actions
+   - Go to your repository on GitHub
+   - Click **Settings** (top menu)
+   - Click **Pages** (left sidebar)
+   - Under "Build and deployment":
+     - **Source**: Select **"GitHub Actions"** from the dropdown
+     - (NOT "Deploy from a branch" - make sure to select GitHub Actions!)
 4. **Push your changes**:
    ```bash
    git add .
@@ -549,8 +557,9 @@ git push
 - For `username.github.io/repo-name`, set basePath to `/repo-name`
 
 **GitHub Actions failing:**
-- Check Settings → Pages → Source is set to "GitHub Actions"
+- Check Settings → Pages → Build and deployment → Source is set to **"GitHub Actions"** (not "Deploy from a branch")
 - Verify you have write permissions for GitHub Pages in repository settings
+- Check the Actions tab in your repository to see the build logs for any errors
 
 **Images not loading:**
 - Make sure images are in the `public` folder
