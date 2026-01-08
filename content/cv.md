@@ -2,13 +2,20 @@
 title: CV
 ---
 
-**Looking for an internship starting from May 2026 for 3-4 months in data science, machine learning, deep learning and artificial intelligence (AI)**
+<div align="center">
+
+**Looking for an internship starting from May 2026 for 3–4 months in data science, machine learning, deep learning and artificial intelligence (AI)**
+
+</div>
 
 ---
 
+<div align="center">
 ## 📝 Summary
 
 An enthusiastic individual thriving for learning and growth in a fast-paced working environment. I am an engineering student at ENSIIE in applied mathematics.
+</div>
+
 
 ---
 
