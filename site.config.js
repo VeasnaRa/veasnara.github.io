@@ -95,7 +95,7 @@ module.exports = {
   // Optional: Add icon field with any Lucide React icon name
   navigation: [
     { title: "Home", path: "/", icon: "Home" },
-    { title: "CV", path: "/cv", icon: "FileText" },
+    { title: "CV", path: "/cv_veasna", icon: "FileText" },
     //{ title: "Blog", path: "/blog", icon: "BookOpen" },
   ],
 
