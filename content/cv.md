@@ -2,74 +2,109 @@
 title: CV
 ---
 
-## Education
+**Looking for an internship starting from May 2026 for 3-4 months in data science, machine learning, deep learning and artificial intelligence (AI)**
 
-**PhD in Computer Science** | Stanford University
-*2020 - Present*
+---
 
-- Research focus: Machine Learning and Natural Language Processing
-- Advisor: Prof. Jane Doe
-- GPA: 4.0/4.0
+## 📝 Summary
 
-**Bachelor of Science in Computer Science** | MIT
-*2016 - 2020*
+An enthusiastic individual thriving for learning and growth in a fast-paced working environment. I am an engineering student at ENSIIE in applied mathematics.
 
-- Graduated with Honors
-- Thesis: "Deep Learning Applications in Computer Vision"
-- GPA: 3.9/4.0
+---
 
-## Experience
+## 🎓 Education
 
-**Research Assistant** | Stanford AI Lab
-*September 2020 - Present*
+### Université Paris-Saclay
+**Master Year 1 (M1) in Applied Mathematics** *Sept 2025 – Current*  *Évry, France* 
 
-- Developing novel neural network architectures for language understanding
-- Published 5 papers in top-tier conferences (NeurIPS, ICML, ACL)
-- Mentoring 3 undergraduate researchers
 
-**Software Engineering Intern** | Google Research
-*Summer 2019*
+- Coursework: Data Analysis, Advanced models in regression, Computer project and agile methods, Scientific Project in Object Oriented Programming (C++), Stochastic Processus, Operations Research, Simulation Methods, Statistical Modeling, Stochastic Calculus, Pattern recognition and biometrics
 
-- Worked on the Google Translate team
-- Improved translation quality for low-resource languages by 15%
-- Implemented efficient caching mechanisms for model inference
+### École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise
+**Engineering Degree** *Sept 2024 – Current*  *Évry, France*
 
-**Teaching Assistant** | MIT
-*2018 - 2020*
+- Coursework: Probability, Statistics, Graph Theory, Optimization, Numerical Analysis, Imperative Programming, Web Programming and Data Networks, Object-oriented Programming (Java), Operating Systems and Shell Scripting, Database design, Functional Programming and Logic
 
-- Courses: Introduction to Machine Learning, Algorithms
-- Held weekly office hours and graded assignments for 200+ students
-- Developed interactive tutorials and coding exercises
+### Institute of Technology of Cambodia (ITC)
+**Engineering degree in Applied Mathematics and Statistics** *2021 – 2024*  *Phnom Penh, Cambodia*
 
-## Publications
+- Coursework: Statistics, Discrete Mathematics, Mathematical Modelling, Data Structure and Programming, Computer Programming in Data Science, Object-Oriented Programming, Introduction to Machine Learning, Database
 
-1. **Your Name**, Co-Author (2024). "Title of Your Paper." *Conference Name*. [Link]
-2. **Your Name**, Co-Author (2023). "Another Important Paper." *Journal Name*. [Link]
-3. Co-Author, **Your Name** (2022). "Research on Topic." *Conference*. [Link]
+---
 
-## Skills
+## 💼 Experience
 
-**Programming Languages**
-Python, JavaScript, C++, Java, R
+### AI FARM ROBOTICS
+**AI Engineer intern** *May 2025 – Aug 2025* *Phnom Penh, Cambodia*
 
-**Frameworks & Tools**
-PyTorch, TensorFlow, React, Node.js, Docker, Git
+**Title: Develop a speech-to-speech conversational agent system with real-time interruption**
 
-**Languages**
-English (Native), Spanish (Fluent), Mandarin (Intermediate)
+- Develop real-time automatic speech recognition (ASR), including voice activity detection (VAD) with live transcription
+- Use a large language model (LLM) to process user intent and generate appropriate responses
+- Implement a text-to-speech (TTS) module to convert responses back into audio
+- Creating a multi-threading pipeline to allow ASR, LLM, and TTS components to execute concurrently
+- Modular speech-to-speech pipeline integrating ASR, LLM, and TTS components
+- Develop a real-time interruption feature in which the user can speak to interrupt the system at any time
 
-## Awards & Honors
+---
 
-- Best Paper Award, NeurIPS 2023
-- Stanford Graduate Fellowship, 2020-2024
-- Dean's List, MIT, 2016-2020
+## 🚀 Projects
 
-## Projects
+### Breast Cancer Survival Classification using Clinical & Genomic Data |R 
+*Nov 2025 – Dec 2025*
 
-**Open Source Contributions**
-- Core contributor to popular ML library (10k+ stars on GitHub)
-- Developed and maintained PyPI package with 50k+ downloads
+- Built ML classification pipeline for 1,230 patients with 24 clinical features and 5,000 mRNA transcripts: data preprocessing, differential expression analysis, and multivariate statistical tests
+- Implemented 6 penalized regression models (Ridge, Lasso, Elastic-Net, Adaptive Lasso, UniLasso) with feature selection techniques for high-dimensional data
+- Addressed class imbalance with SMOTE and optimization: achieved F1-score 0.737, AUC 0.893, Recall 70% using UniLasso + TOP-20 genes, outperforming classical methods by 15%
 
-**Personal Projects**
-- Built web app for [specific use case] - 5,000 active users
-- Created tutorial series on YouTube with 100k+ views
+### Implementation of the Image Processing Program | C 
+*Dec 2024 – Jan 2025*
+
+- Reading and writing image file (PGM & PPM), featuring resizing, brightness and contrast adjustment as well as filtering and color conversion
+- Applied nearest neighbor and bilinear interpolation to optimize image resampling
+
+### Movie Analysis and Recommendation | Python 
+*Jan 2024 – Feb 2024*
+
+- Exploratory data analysis (EDA), data visualization
+- Apply machine learning for the movie recommendations system
+
+---
+
+## 💻 Skills
+
+**Languages:** Python, R, C, C++, Java, OCAML, SQL, HTML, CSS, PHP
+
+**Libraries:** Numpy, Pandas, Matplotlib, Seaborn, Web Scraping, Scikit-learn, PyTorch
+
+**OS:** Debian, Ubuntu, Window
+
+**Technologies/Developer Tools:** LaTeX, Microsoft Office, Jupyter notebook, Git, VS Code, Eclipse
+
+**Soft skills:** Curious, Independent, Problem-solving, Teamwork
+
+---
+
+## 🏆 Certificates
+
+### Hi!ckathon – AI & Data Science Hackathon 
+*December 2025* *Palaiseau, France* 
+Organized by Hi! PARIS Center – AI for Science, Business & Society  
+
+
+### Data Science Camp 
+*January 2024* *Phnom Penh, Cambodia*
+Course organized by UNESCO UNITWIN and the Ministry of Education, Republic of Korea  
+
+---
+
+## 🌍 Languages
+
+**Khmer:** Native proficiency | **English:** Professional working proficiency  | **French:** Limited working proficiency
+
+---
+
+## 🎯 Others
+
+**Club:** Participation in the DataScIIEnce association at ENSIIE  
+**Hobbies:** Traveling, Football, Volleyball

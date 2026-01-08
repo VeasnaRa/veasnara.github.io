@@ -1,12 +1,12 @@
 module.exports = {
   // Site metadata
-  name: "Chonky Cat",
-  title: "Chonky Site",
+  name: "Veasna Ra",
+  title: "VeasnaRa",
   description: "Bonjour to my chonky website",
 
   // SEO & Metadata
-  siteUrl: "https://userwebsite.github.io", // Your site URL (for SEO)
-  author: "Chonky Cat", // Author name (for SEO)
+  siteUrl: "https://veasnara.github.io", // Your site URL (for SEO)
+  author: "Veasna Ra", // Author name (for SEO)
   keywords: ["portfolio", "blog", "machine learning", "AI"], // Keywords for SEO
 
   // Favicon & Icons (optional - customize if needed)
@@ -16,7 +16,7 @@ module.exports = {
   // - icon.png (512x512) - Modern browsers & PWA
   // - apple-icon.png (180x180) - Apple devices
   // You can place custom icons in public/ folder or use app/icon.png, app/apple-icon.png
-  favicon: "/images/favicon.ico", // Set to "/custom-favicon.ico" if using custom
+  favicon: null, // Set to "/custom-favicon.ico" if using custom
   icon: null,    // Set to "/icon.png" if using custom
   appleIcon: null, // Set to "/apple-icon.png" if using custom
 
@@ -24,17 +24,18 @@ module.exports = {
   // Place your image in public/images/ folder (e.g., public/images/profile.jpg)
   // Then set: profileImage: "/images/profile.jpg"
   // Leave as null to show initial letter instead
-  profileImage: "/images/profile.png",
+  profileImage: "/images/pf_web.png",
 
   // Current role and affiliation
-  role: "Your Student Position",
-  affiliation: "Your University",
+  role: "Master's (M1) student in Applied Mathematics",
+  affiliation: "Université Paris-Saclay",
 
   // About section configuration
   aboutSection: {
     show: true,                      // Set to false to hide the About section
-    title: "Hello, I'm a Cool Cat 😼",                  // Customize the section heading (e.g., "Bonjour", "Hello", "Introduction")
-    content: `Your Introduction into Meow`     // Your introduction text (supports line breaks with \n\n)
+    title: "Hi 👋 I'm Veasna RA",                  // Customize the section heading (e.g., "Bonjour", "Hello", "Introduction")
+    content: `I am currently pursuing an engineering degree in applied mathematics at École Nationale Supérieure d’Informatique 
+    pour l’Industrie et l’Entreprise (ENSIIE) and a double master’s degree (M1) at Université Paris-Saclay, France.`     // Your introduction text (supports line breaks with \n\n)
   },
 
   // Contact section configuration
@@ -84,10 +85,10 @@ module.exports = {
   // Research interests or topics
   // You can use a string for plain text, or an object with { name, icon } to add lucide-react icon names
   interests: [
-    { name: "Machine Learning", icon: "Brain" },
-    { name: "Natural Language Processing", icon: "MessageSquare" },
-    { name: "AI Development", icon: "Code" },
-    { name: "Eating Fish", icon: "Fish"}
+      { name: "Machine Learning", icon: "Brain" },
+      { name: "Data Science", icon: "Database" },
+      { name: "Artificial Intelligence", icon: "Code" },
+      { name: "Statistical Analysis", icon: "Chart-line"}
   ],
 
   // Add/remove navigation items here
@@ -95,15 +96,14 @@ module.exports = {
   navigation: [
     { title: "Home", path: "/", icon: "Home" },
     { title: "CV", path: "/cv", icon: "FileText" },
-    { title: "Blog", path: "/blog", icon: "BookOpen" },
+    //{ title: "Blog", path: "/blog", icon: "BookOpen" },
   ],
 
   // Social links for footer
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    email: "your.email@example.com"
+    github: "https://github.com/VeasnaRa",
+    linkedin: "https://www.linkedin.com/in/veasna-ra/",
+    email: "raveasna15@gmail.com"
   },
 
   // CV Display Options
@@ -117,7 +117,7 @@ module.exports = {
   //
   // Option 3: Leave as null to render from content/cv.md (markdown)
   // The markdown option provides the best SEO and accessibility
-  cvFile: "/cv/cv.png",
+  cvFile: null,
 
   // CV Page Configuration
   cvConfig: {
