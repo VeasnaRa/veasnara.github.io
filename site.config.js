@@ -16,7 +16,7 @@ module.exports = {
   // - icon.png (512x512) - Modern browsers & PWA
   // - apple-icon.png (180x180) - Apple devices
   // You can place custom icons in public/ folder or use app/icon.png, app/apple-icon.png
-  favicon: null, // Set to "/custom-favicon.ico" if using custom
+  favicon: "/images/icon.ico", // Set to "/custom-favicon.ico" if using custom
   icon: null,    // Set to "/icon.png" if using custom
   appleIcon: null, // Set to "/apple-icon.png" if using custom
 
@@ -85,17 +85,19 @@ module.exports = {
   // Research interests or topics
   // You can use a string for plain text, or an object with { name, icon } to add lucide-react icon names
   interests: [
-      { name: "Machine Learning", icon: "Brain" },
       { name: "Data Science", icon: "Database" },
-      { name: "Artificial Intelligence", icon: "Code" },
-      { name: "Statistical Analysis", icon: "Chart-line"}
+      { name: "Machine Learning", icon: "Brain" },
+      { name: "Deep Learning", icon: "BrainCircuit" },
+      { name: "Artificial Intelligence", icon: "Bot" },
+      { name: "Statistical Analysis", icon: "ChartLine"}
   ],
-
+  
   // Add/remove navigation items here
   // Optional: Add icon field with any Lucide React icon name
   navigation: [
     { title: "Home", path: "/", icon: "Home" },
-    { title: "CV", path: "/cv_veasna", icon: "FileText" },
+    { title: "CV", path: "/cv", icon: "FileText" },
+    { title: "My Projects", path: "/projects", icon: "BookOpen" },
     //{ title: "Blog", path: "/blog", icon: "BookOpen" },
   ],
 
@@ -137,6 +139,12 @@ module.exports = {
       itemsPerPage: 6,       // For grid/list mode pagination
       columns: 4            // For grid mode: 1, 2, 3, or 4 columns
     },
+
+    projects: {
+      mode: "list",          // "simple" | "grid" | "list"
+      itemsPerPage: 6,       // For grid/list mode pagination
+      columns: 4            // For grid mode: 1, 2, 3, or 4 columns
+    },
     // Add more pages here as needed:
     // pagename: { mode: "grid", itemsPerPage: 9, columns: 3 }
   },
@@ -146,12 +154,12 @@ module.exports = {
   // Each section can show latest items from a specific page (blog, projects, etc.)
   homeSections: [
     {
-      type: "blog",           // Type of content to display (matches folder name in content/)
+      type: "projects",           // Type of content to display (matches folder name in content/)
       title: "Latest Posts",  // Section title
       count: 3,              // Number of items to show
       showViewAll: true,     // Show "View All" button
       viewAllText: "View All Posts",
-      viewAllLink: "/blog"
+      viewAllLink: "/projects"
     }
   ]
 }
