@@ -125,7 +125,22 @@ export default async function DynamicPost({ params }) {
   if (data.htmlSource) {
     const htmlPath = path.join(process.cwd(), 'public', data.htmlSource)
     if (fs.existsSync(htmlPath)) {
-      htmlContent = fs.readFileSync(htmlPath, 'utf8')
+      const fullHtml = fs.readFileSync(htmlPath, 'utf8')
+      const bodyMatch = fullHtml.match(/<body[^>]*>([\s\S]*)<\/body>/i)
+      if (bodyMatch) {
+        htmlContent = bodyMatch[1]
+
+        // Remove R Markdown header elements (title, author, date) to avoid duplicates
+        htmlContent = htmlContent.replace(/<h1[^>]*class="title[^"]*"[^>]*>[\s\S]*?<\/h1>/i, '')
+        htmlContent = htmlContent.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '')
+        htmlContent = htmlContent.replace(/<h3[^>]*class="author[^"]*"[^>]*>[\s\S]*?<\/h3>/gi, '')
+        htmlContent = htmlContent.replace(/<h4[^>]*class="author[^"]*"[^>]*>[\s\S]*?<\/h4>/gi, '')
+        htmlContent = htmlContent.replace(/<p[^>]*class="author[^"]*"[^>]*>[\s\S]*?<\/p>/gi, '')
+        htmlContent = htmlContent.replace(/<h4[^>]*class="date[^"]*"[^>]*>[\s\S]*?<\/h4>/gi, '')
+        htmlContent = htmlContent.replace(/<p[^>]*class="date[^"]*"[^>]*>[\s\S]*?<\/p>/gi, '')
+      } else {
+        htmlContent = fullHtml
+      }
     }
   }
 
@@ -207,13 +222,19 @@ export default async function DynamicPost({ params }) {
 
             {htmlContent ? (
               <>
+                {/* Load MathJax for R Markdown math rendering */}
+                <script
+                  src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+                  async
+                ></script>
+
                 {/* Load custom CSS files */}
                 {cssFiles.length > 0 && cssFiles.map((cssFile, index) => (
                   <link key={index} rel="stylesheet" href={cssFile} />
                 ))}
 
                 <div
-                  className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full"
+                  className="prose prose-lg prose-gray dark:prose-invert max-w-none w-full rmarkdown-content"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
 

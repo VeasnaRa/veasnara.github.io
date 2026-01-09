@@ -527,6 +527,77 @@ body {
   font-size: 1.05em;
 }
 
+/* R Markdown HTML content styling */
+.rmarkdown-content {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Force proper colors in dark mode for R Markdown generated HTML */
+.dark .rmarkdown-content h1,
+.dark .rmarkdown-content h2,
+.dark .rmarkdown-content h3,
+.dark .rmarkdown-content h4,
+.dark .rmarkdown-content h5,
+.dark .rmarkdown-content h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark .rmarkdown-content p,
+.dark .rmarkdown-content li,
+.dark .rmarkdown-content span {
+  color: #cbd5e1 !important;
+}
+
+.dark .rmarkdown-content a {
+  color: #60a5fa !important;
+}
+
+/* Tables */
+.dark .rmarkdown-content table {
+  background: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.dark .rmarkdown-content thead th {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+
+.dark .rmarkdown-content tbody td {
+  color: #e2e8f0 !important;
+  border-color: #475569 !important;
+  background: #1e293b !important;
+}
+
+.dark .rmarkdown-content tbody tr:hover td {
+  background: #334155 !important;
+}
+
+/* Code blocks */
+.dark .rmarkdown-content pre {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+.dark .rmarkdown-content pre code {
+  color: #e5e7eb !important;
+  background: transparent !important;
+}
+
+.dark .rmarkdown-content code {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Images */
+.dark .rmarkdown-content img {
+  background: #fff !important;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
 /* Print optimizations for CV */
 @media print {
   /* Hide all non-essential elements */
