@@ -35,7 +35,13 @@ module.exports = {
     show: true,                      // Set to false to hide the About section
     title: "Hi 👋 I'm Veasna RA",                  // Customize the section heading (e.g., "Bonjour", "Hello", "Introduction")
     content: `I am currently pursuing an engineering degree in applied mathematics at École Nationale Supérieure d’Informatique 
-    pour l’Industrie et l’Entreprise (ENSIIE) and a double master’s degree (M1) at Université Paris-Saclay, France.`     // Your introduction text (supports line breaks with \n\n)
+    pour l’Industrie et l’Entreprise (ENSIIE) and a double master’s degree (M1) at Université Paris-Saclay, France.
+    
+    <div align="center">
+
+**Looking for an internship starting from May 2026 for 3–4 months in Data Science, Machine Learning, Deep Learning & Artificial Intelligence (AI)**
+
+</div>`     // Your introduction text (supports line breaks with \n\n)
   },
 
   // Contact section configuration
@@ -141,7 +147,7 @@ module.exports = {
     },
 
     projects: {
-      mode: "grid",          // "simple" | "grid" | "list"
+      mode: "list",          // "simple" | "grid" | "list"
       itemsPerPage: 6,       // For grid/list mode pagination
       columns: 4            // For grid mode: 1, 2, 3, or 4 columns
     },
