@@ -4,107 +4,102 @@ title: CV
 
 <div align="center">
 
-**Looking for an internship starting from May 2026 for 3–4 months in Data Science, Machine Learning, Deep Learning & Artificial Intelligence (AI)**
+**Seeking an internship starting in May 2026 (3–4 months) in Data Science, Machine Learning, Deep Learning & Artificial Intelligence (AI)**
 
 </div>
-
----
-
-## 📝 Summary
-
-An enthusiastic individual thriving for learning and growth in a fast-paced working environment. I am an engineering student at ENSIIE in applied mathematics.
-
 ---
 
 ## 🎓 Education
 
-### Université Paris-Saclay
-**Master Year 1 (M1) in Applied Mathematics** *Sept 2025 – Current*  *Évry, France* 
+### Université Paris-Saclay  
+**Master Year 1 (M1) in Applied Mathematics**  
+*Sept 2025 – Current | · Évry, France*
 
+- The course focuses on data analysis, machine learning, pattern recognition and biometrics, statistical modeling, stochastic processes, operations research and object oriented programming
 
-- Coursework: Data Analysis, Advanced models in regression, Computer project and agile methods, Scientific Project in Object Oriented Programming (C++), Stochastic Processus, Operations Research, Simulation Methods, Statistical Modeling, Stochastic Calculus, Pattern recognition and biometrics
+### École Nationale Supérieure d’Informatique pour l’Industrie et l’Entreprise   
+**Engineering Degree**  
+*Sept 2024 – Current | · Évry, France*  
 
-### École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise
-**Engineering Degree** *Sept 2024 – Current*  *Évry, France*
+- The course focuses on computer science, applied mathematics, optimization, databases 
 
-- Coursework: Probability, Statistics, Graph Theory, Optimization, Numerical Analysis, Imperative Programming, Web Programming and Data Networks, Object-oriented Programming (Java), Operating Systems and Shell Scripting, Database design, Functional Programming and Logic
+### Institute of Technology of Cambodia (ITC)  
+**Engineering Degree in Applied Mathematics and Statistics**  
+*2021 – 2024 | · Phnom Penh, Cambodia*  
 
-### Institute of Technology of Cambodia (ITC)
-**Engineering degree in Applied Mathematics and Statistics** *2021 – 2024*  *Phnom Penh, Cambodia*
-
-- Coursework: Statistics, Discrete Mathematics, Mathematical Modelling, Data Structure and Programming, Computer Programming in Data Science, Object-Oriented Programming, Introduction to Machine Learning, Database
+- First two-year studied intensive course in science and third year studied in Applied Mathematics and Statistics
 
 ---
 
 ## 💼 Experience
 
-### AI FARM ROBOTICS
-**AI Engineer intern** *May 2025 – Aug 2025* *Phnom Penh, Cambodia*
+### AI FARM ROBOTICS 
+**AI Engineer Intern**  
+*Phnom Penh, Cambodia | May 2025 – Aug 2025*
 
-**Title: Develop a speech-to-speech conversational agent system with real-time interruption**
+***Project: Develop a speech-to-speech conversational agent system with real-time interruption***
 
-- Develop real-time automatic speech recognition (ASR), including voice activity detection (VAD) with live transcription
-- Use a large language model (LLM) to process user intent and generate appropriate responses
-- Implement a text-to-speech (TTS) module to convert responses back into audio
-- Creating a multi-threading pipeline to allow ASR, LLM, and TTS components to execute concurrently
-- Modular speech-to-speech pipeline integrating ASR, LLM, and TTS components
+- Develop a modular automatic speech recognition (ASR), large language model (LLM), and text-to-speech (TTS) system  
+- Real-time speech-to-speech pipeline integrating ASR, LLM, TTS using a multi-threaded architecture for concurrent execution  
 - Develop a real-time interruption feature in which the user can speak to interrupt the system at any time
-
 ---
 
 ## 🚀 Projects
 
-### Breast Cancer Survival Classification using Clinical & Genomic Data |R 
+### Breast Cancer Survival Classification using Clinical & Genomic Data | R  
 *Nov 2025 – Dec 2025*
 
-- Built ML classification pipeline for 1,230 patients with 24 clinical features and 5,000 mRNA transcripts: data preprocessing, differential expression analysis, and multivariate statistical tests
-- Implemented 6 penalized regression models (Ridge, Lasso, Elastic-Net, Adaptive Lasso, UniLasso) with feature selection techniques for high-dimensional data
-- Addressed class imbalance with SMOTE and optimization: achieved F1-score 0.737, AUC 0.893, Recall 70% using UniLasso + TOP-20 genes, outperforming classical methods by 15%
+- Analyzed high-dimensional clinical and genomic data from 1,230 patients (24 clinical features and 5,000 mRNA transcripts), performing differential expression analysis, multivariate statistical testing, dimensionality reduction, class imbalance handling with SMOTE, and implementing six penalized regression models with embedded feature selection
 
-### Implementation of the Image Processing Program | C 
+### Credit Score Analysis and Prediction | Python, Machine Learning  
+*Nov 2025 – Dec 2025*
+
+- Conducted end-to-end credit risk analysis by applying statistical inference, exploratory data analysis, dimensionality reduction, and customer segmentation, and built and evaluated supervised learning models for credit default classification and credit score regression using standard performance metrics
+
+### Implementation of the Image Processing Program | C  
 *Dec 2024 – Jan 2025*
 
-- Reading and writing image file (PGM & PPM), featuring resizing, brightness and contrast adjustment as well as filtering and color conversion
-- Applied nearest neighbor and bilinear interpolation to optimize image resampling
-
-### Movie Analysis and Recommendation | Python 
-*Jan 2024 – Feb 2024*
-
-- Exploratory data analysis (EDA), data visualization
-- Apply machine learning for the movie recommendations system
+- Implemented image reading and writing with resizing, brightness and contrast adjustment, filtering, and color conversion  
+- Applied nearest neighbor and bilinear interpolation to optimize image resampling  
 
 ---
 
 ## 💻 Skills
 
-**Languages:** Python, R, C, C++, Java, OCAML, SQL, HTML, CSS, PHP
+**Programming Languages:**  
+Python, R, C, C++, Java, OCAML, SQL, HTML, CSS, PHP  
 
-**Libraries:** Numpy, Pandas, Matplotlib, Seaborn, Web Scraping, Scikit-learn, PyTorch
+**Libraries:**  
+NumPy, Pandas, Matplotlib, Seaborn, Web Scraping, Scikit-learn, PyTorch  
 
-**OS:** Debian, Ubuntu, Window
+**Technologies / Developer Tools:**  
+LaTeX, Microsoft Office, Jupyter Notebook, Git, VS Code, Eclipse  
 
-**Technologies/Developer Tools:** LaTeX, Microsoft Office, Jupyter notebook, Git, VS Code, Eclipse
+**Operating Systems:**  
+Debian, Ubuntu, Windows  
 
-**Soft skills:** Curious, Independent, Problem-solving, Teamwork
+**Soft Skills:**  
+Curious, Independent, Problem-solving, Teamwork  
 
 ---
 
 ## 🏆 Certificates
 
-### Hi!ckathon – AI & Data Science Hackathon 
-*December 2025* *Palaiseau, France* 
+### Hi!ckathon – AI & Data Science Hackathon  
+*December 2025 | · Palaiseau, France*  
 Organized by Hi! PARIS Center – AI for Science, Business & Society  
 
-
-### Data Science Camp 
-*January 2024* *Phnom Penh, Cambodia*
-Course organized by UNESCO UNITWIN and the Ministry of Education, Republic of Korea  
+### Data Science Camp  
+*January 2024 | · Phnom Penh, Cambodia*  
+Organized by UNESCO UNITWIN and the Ministry of Education, Republic of Korea  
 
 ---
 
 ## 🌍 Languages
 
-**Khmer:** Native proficiency | **English:** Professional working proficiency  | **French:** Limited working proficiency
+- **Khmer:** Native proficiency  
+- **English:** Professional working proficiency  
+- **French:** Limited working proficiency  
 
 ---
 
