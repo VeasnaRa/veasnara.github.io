@@ -2,7 +2,7 @@ module.exports = {
   // Site metadata
   name: "Veasna Ra",
   title: "VeasnaRa",
-  description: "Bonjour to my chonky website",
+  description: "Hello and welcome to Veasna Ra’s portfolio website",
 
   // SEO & Metadata
   siteUrl: "https://veasnara.github.io", // Your site URL (for SEO)
