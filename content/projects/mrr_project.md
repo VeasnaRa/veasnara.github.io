@@ -1,6 +1,6 @@
 ---
 title: "Breast Cancer Classification"
-date: "2026-01-09"
+date: "2026-01-20"
 description: "A machine learning project for predicting breast cancer patient vital status using clinical variables and high-dimensional mRNA gene expression data through regularized regression methods."
 tags: ["machine learning", "breast cancer prediction", "regularized regression methods", "high-dimensional dataset"]
 thumbnail: "/images/ml.png"

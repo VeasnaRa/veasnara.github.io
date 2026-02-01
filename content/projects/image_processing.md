@@ -1,6 +1,6 @@
 ---
 title: "Image Processing Program in C"
-date: 2026-01-11
+date: 2026-01-01
 excerpt: "A C-based image processing program demonstrating low-level manipulation of grayscale and color images through custom-built modules and transformation algorithms."
 tags: [c, image-processing, programming, algorithms, computer-vision]
 thumbnail: "/images/c.png"
