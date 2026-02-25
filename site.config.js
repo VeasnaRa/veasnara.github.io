@@ -125,11 +125,12 @@ module.exports = {
   // Option 3: Leave as null to render from content/cv.md (markdown)
   // The markdown option provides the best SEO and accessibility
   cvFile: null,
-
+  
   // CV Page Configuration
   cvConfig: {
     showDownloadButton: false,  // Set to false to hide the download button
     showPrintButton: false,     // Set to false to hide the print button
+
   },
 
   // Page Display Configuration
@@ -150,6 +151,7 @@ module.exports = {
       itemsPerPage: 6,       // For grid/list mode pagination
       columns: 4            // For grid mode: 1, 2, 3, or 4 columns
     },
+
     // Add more pages here as needed:
     // pagename: { mode: "grid", itemsPerPage: 9, columns: 3 }
   },
