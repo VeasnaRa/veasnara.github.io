@@ -18,6 +18,13 @@
   border-color: theme('colors.slate.700');
 }
 
+/* Base font size for the whole site. Tailwind sizes are all in rem, so this
+   single value scales every page (home, projects, CV) together.
+   16px is the browser default — raise to 18px for a bigger bump. */
+html {
+  font-size: 16px;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -128,6 +135,37 @@ body {
 .dark .prose a:hover {
   color: #f1f5f9;
   text-decoration-color: #f1f5f9;
+}
+
+/* Inline links written as [label](url) in site.config.js (About section, ...).
+   Also scoped under .prose so they outrank the generic `.prose a` rules above. */
+a.rich-link,
+.prose a.rich-link {
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(29, 78, 216, 0.35);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: all 0.2s;
+}
+
+a.rich-link:hover,
+.prose a.rich-link:hover {
+  color: #1e40af;
+  text-decoration-color: #1d4ed8;
+}
+
+.dark a.rich-link,
+.dark .prose a.rich-link {
+  color: #7dd3fc;
+  text-decoration-color: rgba(125, 211, 252, 0.4);
+}
+
+.dark a.rich-link:hover,
+.dark .prose a.rich-link:hover {
+  color: #bae6fd;
+  text-decoration-color: #7dd3fc;
 }
 
 .prose strong {
@@ -598,8 +636,452 @@ body {
   border-radius: 0.5rem;
 }
 
+/* ===========================================================================
+   HEADER & FOOTER COLOURS — edit here
+   =========================================================================== */
+.site-header {
+  background-color: rgb(253, 253, 253); /* light grey, 95% opaque */
+  border-color: #e2e8f0;
+}
+
+.site-footer {
+  background-color: #fcd08f;
+  border-color: #e2e8f0;
+}
+
+.dark .site-header {
+  background-color: rgba(15, 23, 42, 0.95);
+  border-color: #1e293b;
+}
+
+.dark .site-footer {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}
+
+/* ---------------------------------------------------------------------------
+   Rectangular colour blocks
+   Used by the header nav and by the Live Demo / GitHub buttons on project
+   pages, so both share one definition. For nav items the colour is chosen in
+   site.config.js:  { title: "CV", path: "/cv", icon: "FileText", color: "rose" }
+   Available colours: rose | amber | sky | mint | violet | (omit for grey)
+--------------------------------------------------------------------------- */
+.nav-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-chip:hover {
+  background-color: #cbd5e1;
+}
+
+/* Current page: a solid bar drawn inside the block */
+.nav-chip[data-active='true'] {
+  box-shadow: inset 0 -4px 0 rgba(15, 23, 42, 0.55);
+}
+
+/* Full-width variant used by the mobile menu */
+.nav-chip--block {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.dark .nav-chip {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark .nav-chip:hover {
+  background-color: #334155;
+}
+
+.dark .nav-chip[data-active='true'] {
+  box-shadow: inset 0 -4px 0 rgba(226, 232, 240, 0.7);
+}
+
+.nav-chip--rose { background-color: #efb6ab; }
+.nav-chip--rose:hover { background-color: #e79f90; }
+.dark .nav-chip--rose { background-color: #7c4139; color: #fde8e4; }
+.dark .nav-chip--rose:hover { background-color: #945046; }
+
+.nav-chip--amber { background-color: #f5d379; }
+.nav-chip--amber:hover { background-color: #efc457; }
+.dark .nav-chip--amber { background-color: #7a5a1c; color: #fdf1d3; }
+.dark .nav-chip--amber:hover { background-color: #936d24; }
+
+.nav-chip--sky { background-color: #aecfe6; }
+.nav-chip--sky:hover { background-color: #93bedd; }
+.dark .nav-chip--sky { background-color: #2f5069; color: #dcedfa; }
+.dark .nav-chip--sky:hover { background-color: #3b647f; }
+
+.nav-chip--mint { background-color: #b6dcc3; }
+.nav-chip--mint:hover { background-color: #9bcfad; }
+.dark .nav-chip--mint { background-color: #2f5c42; color: #ddf1e4; }
+.dark .nav-chip--mint:hover { background-color: #3b7253; }
+
+.nav-chip--violet { background-color: #c9bfe6; }
+.nav-chip--violet:hover { background-color: #b5a7dd; }
+.dark .nav-chip--violet { background-color: #453a68; color: #e8e2f7; }
+.dark .nav-chip--violet:hover { background-color: #554880; }
+
+/* Square icon blocks (search, theme toggle, mobile menu).
+   Deliberately does NOT set `display` — these buttons are shown/hidden with
+   Tailwind's `hidden` / `md:hidden`, and plain CSS here is unlayered, so it
+   would override those utilities and make every button visible at once. */
+.nav-icon-btn {
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem;
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+  background-color: #cbd5e1;
+}
+
+.dark .nav-icon-btn {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark .nav-icon-btn:hover {
+  background-color: #334155;
+}
+
+/* ---------------------------------------------------------------------------
+   CV page
+   Two-column timeline: dates/place on the left, the entry on the right,
+   separated by a rule. Collapses to a single column below 48rem.
+   Selectors are doubled up (.cv-entry .cv-entry-title) so they outrank the
+   generic `.prose h3` / `.prose p` rules earlier in this file.
+--------------------------------------------------------------------------- */
+.cv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cv-langs {
+  display: inline-flex;
+}
+
+.cv-lang {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  background-color: #e2e8f0;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cv-lang:hover {
+  background-color: #cbd5e1;
+}
+
+.cv-lang[data-active='true'] {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.dark .cv-lang {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark .cv-lang:hover {
+  background-color: #334155;
+}
+
+.dark .cv-lang[data-active='true'] {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.cv-actions {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.cv-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #0f172a;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.cv-action:hover {
+  opacity: 0.85;
+}
+
+.cv-action--ghost {
+  background-color: transparent;
+  color: #0f172a;
+  box-shadow: inset 0 0 0 2px #0f172a;
+}
+
+.cv-action--ghost:hover {
+  background-color: #e2e8f0;
+  opacity: 1;
+}
+
+.dark .cv-action {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.dark .cv-action--ghost {
+  background-color: transparent;
+  color: #e2e8f0;
+  box-shadow: inset 0 0 0 2px #e2e8f0;
+}
+
+.dark .cv-action--ghost:hover {
+  background-color: #1e293b;
+}
+
+/* Section headings: EDUCATION, EXPERIENCE, ... */
+.cv-content h2 {
+  position: relative;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cv-content h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 3rem;
+  height: 2px;
+  background-color: #0f172a;
+}
+
+.dark .cv-content h2 {
+  color: #f1f5f9;
+  border-bottom-color: #1e293b;
+}
+
+.dark .cv-content h2::after {
+  background-color: #f1f5f9;
+}
+
+.cv-content > *:first-child {
+  margin-top: 0;
+}
+
+/* Lead statement */
+.cv-lead {
+  margin: 0 0 1rem;
+  padding: 1rem 1.35rem;
+  background-color: #f8fafc;
+  border-left: 3px solid #0f172a;
+}
+
+.cv-lead p {
+  margin: 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.dark .cv-lead {
+  background-color: #0f172a;
+  border-left-color: #e2e8f0;
+}
+
+.dark .cv-lead p {
+  color: #cbd5e1;
+}
+
+/* Timeline rows */
+.cv-entry {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 2.75rem;
+}
+
+.cv-entry-date {
+  margin: 0 0 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.cv-entry-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.cv-entry-pin {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.dark .cv-entry-date {
+  color: #cbd5e1;
+}
+
+.dark .cv-entry-location {
+  color: #94a3b8;
+}
+
+.cv-entry .cv-entry-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.dark .cv-entry .cv-entry-title {
+  color: #f8fafc;
+}
+
+/* Linked entry titles (school website, GitHub repo, ...) */
+.cv-entry .cv-entry-title a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.cv-entry .cv-entry-title a:hover {
+  text-decoration-color: currentColor;
+}
+
+.cv-entry .cv-entry-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.dark .cv-entry .cv-entry-subtitle {
+  color: #cbd5e1;
+}
+
+.cv-entry .cv-entry-content {
+  margin-top: 0.9rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.dark .cv-entry .cv-entry-content {
+  color: #94a3b8;
+}
+
+.cv-entry .cv-entry-content p {
+  margin: 0 0 0.7rem;
+}
+
+.cv-entry .cv-entry-content p:last-child {
+  margin-bottom: 0;
+}
+
+.cv-entry .cv-entry-content ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  list-style-type: disc;
+}
+
+.cv-entry .cv-entry-content li {
+  margin: 0 0 0.55rem;
+}
+
+.cv-entry .cv-entry-content strong {
+  color: #0f172a;
+}
+
+.dark .cv-entry .cv-entry-content strong {
+  color: #e2e8f0;
+}
+
+@media (min-width: 48rem) {
+  .cv-entry {
+    grid-template-columns: 11rem 1fr;
+    gap: 0;
+  }
+
+  .cv-entry-meta {
+    padding-top: 0.35rem;
+    padding-right: 1.75rem;
+  }
+
+  .cv-entry-body {
+    border-left: 1px solid #e2e8f0;
+    padding-left: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .dark .cv-entry-body {
+    border-left-color: #1e293b;
+  }
+}
+
 /* Print optimizations for CV */
 @media print {
+  .cv-toolbar {
+    display: none !important;
+  }
+
+  .cv-entry {
+    page-break-inside: avoid;
+    grid-template-columns: 9rem 1fr;
+    margin-bottom: 1rem;
+  }
+
+  .cv-entry-body {
+    border-left: 1px solid #cccccc !important;
+    padding-left: 1rem;
+  }
+
+  .cv-lead {
+    border-left: 3px solid #000000 !important;
+  }
+
   /* Hide all non-essential elements */
   header, nav, footer {
     display: none !important;

@@ -40,22 +40,23 @@ export default function Header({ allContent = [], searchOpen, setSearchOpen }) {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-black/95 backdrop-blur-sm transition-colors">
-      <div className="mx-auto max-w-4xl px-4">
+    <header className="site-header sticky top-0 z-50 w-full border-b backdrop-blur-sm transition-colors">
+      {/* Same width/padding as <main> in app/layout.js so the nav lines up
+          with the page content below it. */}
+      <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-slate-300 transition-colors">
             {siteConfig.name}
           </Link>
 
           <div className="flex items-center gap-4">
-            <nav className="hidden md:flex gap-8">
+            <nav className="hidden md:flex gap-2">
               {siteConfig.navigation.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-gray-900 dark:hover:text-white ${
-                    pathname === item.path ? 'text-gray-900 dark:text-white border-b-2 border-gray-900 dark:border-white' : 'text-gray-600 dark:text-slate-400'
-                  }`}
+                  data-active={pathname === item.path}
+                  className={`nav-chip${item.color ? ` nav-chip--${item.color}` : ''}`}
                 >
                   {renderIcon(item.icon)}
                   {item.title}
@@ -66,20 +67,17 @@ export default function Header({ allContent = [], searchOpen, setSearchOpen }) {
             {/* Search Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="hidden md:flex items-center gap-2 px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md transition-colors text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-slate-700"
+              className="hidden md:inline-flex items-center justify-center nav-icon-btn"
               aria-label="Search"
+              title={`Search (${isMac ? '⌘' : 'Ctrl+'}K)`}
             >
-              <Search className="h-4 w-4" />
-              <span className="text-sm">Search</span>
-              <kbd className="hidden lg:inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-white dark:bg-slate-900 text-gray-500 dark:text-slate-400 text-xs font-semibold rounded border border-gray-300 dark:border-slate-700">
-                {isMac ? '⌘' : 'Ctrl'}K
-              </kbd>
+              <Search className="h-5 w-5" />
             </button>
 
             {/* Mobile Search Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md transition-colors text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white"
+              className="md:hidden inline-flex items-center justify-center nav-icon-btn"
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
@@ -89,7 +87,7 @@ export default function Header({ allContent = [], searchOpen, setSearchOpen }) {
             <ThemeToggle />
 
             <button
-              className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md transition-colors text-gray-600 dark:text-slate-400"
+              className="md:hidden inline-flex items-center justify-center nav-icon-btn"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -99,16 +97,13 @@ export default function Header({ allContent = [], searchOpen, setSearchOpen }) {
         </div>
 
         {isOpen && (
-          <nav className="md:hidden py-4 space-y-3 border-t dark:border-slate-800">
+          <nav className="md:hidden py-4 space-y-2 border-t dark:border-slate-800">
             {siteConfig.navigation.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === item.path
-                    ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-slate-800'
-                    : 'text-gray-600 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white'
-                }`}
+                data-active={pathname === item.path}
+                className={`nav-chip nav-chip--block${item.color ? ` nav-chip--${item.color}` : ''}`}
                 onClick={() => setIsOpen(false)}
               >
                 {renderIcon(item.icon)}

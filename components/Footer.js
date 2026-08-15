@@ -13,8 +13,8 @@ export default function Footer() {
   const customLinks = siteConfig.footer?.customLinks || []
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-black mt-auto transition-colors">
-      <div className="mx-auto max-w-4xl px-4">
+    <footer className="site-footer border-t mt-auto transition-colors">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-16 items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-slate-400">
             <p>{footerText}</p>

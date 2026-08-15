@@ -152,6 +152,11 @@ export default async function DynamicPost({ params }) {
     ? data.date.toLocaleDateString()
     : data.date
 
+  // The table of contents is built from the markdown headings, so an htmlSource
+  // page (or one with no headings) renders nothing there — don't reserve its
+  // 280px column in that case, let the content use the full width instead.
+  const hasToc = !htmlContent && /^#{2,3}\s+.+$/m.test(content)
+
   return (
     <div className="w-full ">
       <Link
@@ -162,7 +167,7 @@ export default async function DynamicPost({ params }) {
         Back to {page}
       </Link>
 
-      <div className="grid xl:grid-cols-[1fr_280px] gap-12">
+      <div className={hasToc ? 'grid xl:grid-cols-[1fr_280px] gap-12' : ''}>
         <article className="min-w-0">
           <div className="space-y-6">
             <header className="space-y-3">
@@ -191,13 +196,14 @@ export default async function DynamicPost({ params }) {
               )}
 
               {(data.demo || data.github) && (
-                <div className="flex gap-3 pt-2">
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {/* Same rectangle blocks as the header nav — see .nav-chip in globals.css */}
                   {data.demo && (
                     <a
                       href={data.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-gray-700 dark:hover:bg-slate-200 transition-colors text-sm font-medium"
+                      className="nav-chip nav-chip--mint"
                     >
                       <ExternalLink className="h-4 w-4" />
                       Live Demo
@@ -208,10 +214,10 @@ export default async function DynamicPost({ params }) {
                       href={data.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors text-sm font-medium"
+                      className="nav-chip nav-chip--violet"
                     >
                       <Github className="h-4 w-4" />
-                      View Code
+                      GitHub
                     </a>
                   )}
                 </div>
@@ -271,7 +277,7 @@ export default async function DynamicPost({ params }) {
           </div>
         </article>
 
-        <TableOfContents content={content} />
+        {hasToc && <TableOfContents content={content} />}
       </div>
     </div>
   )

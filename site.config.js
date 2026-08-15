@@ -1,8 +1,8 @@
 module.exports = {
   // Site metadata
-  name: "Veasna Ra",
+  name: "Veasna RA",
   title: "VeasnaRa",
-  description: "Hello and welcome to Veasna Ra’s portfolio website",
+  description: "Hello and welcome to Veasna RA’s portfolio website",
 
   // SEO & Metadata
   siteUrl: "https://veasnara.github.io", // Your site URL (for SEO)
@@ -24,22 +24,25 @@ module.exports = {
   // Place your image in public/images/ folder (e.g., public/images/profile.jpg)
   // Then set: profileImage: "/images/profile.jpg"
   // Leave as null to show initial letter instead
-  profileImage: "/images/profile_new.png",
+  profileImage: "/images/profile_vs.png",
 
   // Current role and affiliation
-  role: "Master's (M1) student in Applied Mathematics",
+  role: "Master's (M2) student in Data Science",
   affiliation: "Université Paris-Saclay",
   
 
   // About section configuration
   aboutSection: {
     show: true,                      // Set to false to hide the About section
-    title: "Hi 👋 I'm Veasna RA",                  // Customize the section heading (e.g., "Bonjour", "Hello", "Introduction")
-    content: `I am currently pursuing an engineering degree in applied mathematics at École Nationale Supérieure d’Informatique 
-    pour l’Industrie et l’Entreprise (ENSIIE) and a double master’s degree (M1) at Université Paris-Saclay, France. 
+    title: "Hello! I'm Veasna RA",                  // Customize the section heading (e.g., "Bonjour", "Hello", "Introduction")
+    // Blank lines start a new paragraph.
+    // [label](https://url) makes a link, **text** makes it bold.
+    content: `I am currently pursuing a **Master 2 in Data Science** at [Université Paris-Saclay](https://www.universite-paris-saclay.fr/en/education/masters-degree/innovation-enterprise-and-society/m2-innovation-marches-et-science-des-donnees-imsd) in France.
+    This program focuses on Machine Learning, Deep Learning, Big Data, Economic Analysis and Quantitative Techniques.
 
+    In parallel, I do a double degree in **engineering (Diplôme d’ingénieur)** at [ENSIIE](https://www.ensiie.fr/en), where I specialize in **Applied Mathematics**. This program emphasized Computer science and Mathematics,
+    with a strong focus on algorithmic thinking, probability, statistics, optimization, machine learning, stochastic calculus, advanced programming, and projects.`
 
-    \nCurrently seeking a 3 to 4 months internship beginning in May 2026 in the fields of Data Science, Machine Learning, Deep Learning, and Artificial Intelligence (AI).`
 
   },
 
@@ -51,6 +54,15 @@ module.exports = {
     showGithub: true,  // Set to false to hide GitHub
     showLinkedin: true,  // Set to false to hide LinkedIn
     showTwitter: true,  // Set to false to hide Twitter
+
+    // Text shown next to each icon (the link still points at your profile).
+    // Set a value to null to show the handle from the URL instead,
+    // e.g. github: null -> "@VeasnaRa", linkedin: null -> "veasna-ra"
+    labels: {
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      twitter: null,
+    },
   },
 
   // Profile section configuration (home page sidebar)
@@ -69,7 +81,8 @@ module.exports = {
                             // "hexagon" - Hexagonal shape
                             // "diamond" - Diamond/rotated square
                             // "squircle" - Apple-style squircle
-    imageSize: "large"  // "small" (64px), "medium" (80px), "large" (112px)
+    imageSize: "xlarge"  // "small" (64px), "medium" (80px), "large" (112px),
+                         // "xlarge" (160px), "xxlarge" (224px), "full" (fills the sidebar)
   },
 
   // Layout configuration
@@ -98,12 +111,14 @@ module.exports = {
   ],
   
   // Add/remove navigation items here
-  // Optional: Add icon field with any Lucide React icon name
+  // Optional: "icon" is any Lucide React icon name
+  // Optional: "color" is the rectangle background colour of the nav button.
+  //           rose | amber | sky | mint | violet — omit it for plain grey.
   navigation: [
-    { title: "Home", path: "/", icon: "Home" },
-    { title: "CV", path: "/cv", icon: "FileText" },
-    { title: "My Projects", path: "/projects", icon: "BookOpen" },
-    //{ title: "Blog", path: "/blog", icon: "BookOpen" },
+    { title: "Home", path: "/", icon: "Home", color: "sky" },
+    { title: "CV", path: "/cv", icon: "FileText", color: "rose" },
+    { title: "My Projects", path: "/projects", icon: "BookOpen", color: "amber" },
+    //{ title: "Blog", path: "/blog", icon: "BookOpen", color: "mint" },
   ],
 
   // Social links for footer
@@ -128,9 +143,18 @@ module.exports = {
   
   // CV Page Configuration
   cvConfig: {
-    showDownloadButton: false,  // Set to false to hide the download button
-    showPrintButton: false,     // Set to false to hide the print button
+    showDownloadButton: true,  // Set to false to hide the download button
+    showPrintButton: false,    // Visitors download the real PDF instead of printing the page
 
+    // Language versions of the CV. Each entry needs:
+    //   file: the markdown file in content/ (without .md)
+    //   pdf:  optional PDF in public/ — the Download button only appears once
+    //         that file actually exists, so a missing PDF never 404s.
+    // Delete an entry (or the whole array) to go back to a single-language CV.
+    languages: [
+      { code: "en", label: "English",  file: "cv",    pdf: "/cv/CV_Veasna_RA_EN.pdf" },
+      { code: "fr", label: "Français", file: "cv-fr", pdf: "/cv/CV_Veasna_RA_FR.pdf" }
+    ]
   },
 
   // Page Display Configuration

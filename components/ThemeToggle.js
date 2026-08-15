@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     // Return a placeholder with the same dimensions to avoid layout shift
     return (
       <button
-        className="p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md transition-colors"
+        className="inline-flex items-center justify-center nav-icon-btn"
         aria-label="Toggle theme"
         disabled
       >
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md transition-colors text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white"
+      className="inline-flex items-center justify-center nav-icon-btn"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (

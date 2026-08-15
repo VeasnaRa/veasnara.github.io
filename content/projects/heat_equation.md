@@ -4,6 +4,7 @@ date: 2026-02-01
 excerpt: "A C++ project that simulates heat diffusion in 1D (bar) and 2D (plate) implementing the finite difference method. The simulation uses SDL2 for real-time visualization with a heatmap display."
 tags: [C++, heat-equation, partial-differential-equation(PDE), sdl2]
 thumbnail: "/images/heat.png"
+github: "https://github.com/VeasnaRa/Heat-Equation-Simulation"
 ---
 
 # Heat-Equation-Simulation

@@ -2,108 +2,160 @@
 title: CV
 ---
 
-<div align="center">
+<Lead>
 
-**Seeking an internship starting in May 2026 (3–4 months) in Data Science, Machine Learning, Deep Learning & Artificial Intelligence (AI)**
+**Master 2 student looking for an AI engineering apprenticeship (alternance) starting September 2026.**
 
-</div>
----
+</Lead>
 
-## 🎓 Education
+## Education
 
-### Université Paris-Saclay  
-**Master Year 1 (M1) in Applied Mathematics**  
-*Sept 2025 – Current | · Évry, France*
+<Entry
+  date="September 2026 – 2027"
+  location="Évry, France"
+  title="Université Paris-Saclay"
+  href="https://www.universite-paris-saclay.fr/formation/master/innovation-entreprise-et-societe/m2-innovation-marches-et-science-des-donnees-imsd"
+  subtitle="Master 2 in Innovation, Markets and Data Science"
+>
 
-- The course focuses on data analysis, machine learning, pattern recognition and biometrics, statistical modeling, stochastic processes, operations research and object oriented programming
+The programme focuses on advanced econometrics, machine learning, deep learning, big data, multidimensional databases, data mining, NoSQL, time series econometrics, multi-core system tools and data architecture.
 
-### École Nationale Supérieure d’Informatique pour l’Industrie et l’Entreprise   
-**Engineering Degree**  
-*Sept 2024 – Current | · Évry, France*  
+</Entry>
 
-- The course focuses on computer science, applied mathematics, optimization, databases 
+<Entry
+  date="September 2024 – 2027"
+  location="Évry, France"
+  title="École Nationale Supérieure d’Informatique pour l’Industrie et l’Entreprise (ENSIIE)"
+  href="https://www.ensiie.fr/formation/mathematiques-appliquees"
+  subtitle="Engineering Degree in Applied Mathematics"
+>
 
-### Institute of Technology of Cambodia (ITC)  
-**Engineering Degree in Applied Mathematics and Statistics**  
-*2021 – 2024 | · Phnom Penh, Cambodia*  
+Coursework covers data analysis, machine learning, statistical modelling, pattern recognition and biometrics, regularized regression methods, operations research and object-oriented programming.
 
-- First two-year studied intensive course in science and third year studied in Applied Mathematics and Statistics
+</Entry>
 
----
+<Entry
+  date="2021 – 2026"
+  location="Phnom Penh, Cambodia"
+  title="Institute of Technology of Cambodia (ITC)"
+  href="https://itc.edu.kh/"
+  subtitle="Engineering Degree in Applied Mathematics and Statistics"
+>
 
-## 💼 Experience
+Coursework covers computer science, applied mathematics and statistics, data science and machine learning.
 
-### AI FARM ROBOTICS 
-**AI Engineer Intern**  
-*Phnom Penh, Cambodia | May 2025 – Aug 2025*
+</Entry>
 
-***Project: Develop a speech-to-speech conversational agent system with real-time interruption***
+## Experience
 
-- Develop a modular automatic speech recognition (ASR), large language model (LLM), and text-to-speech (TTS) system  
-- Real-time speech-to-speech pipeline integrating ASR, LLM, TTS using a multi-threaded architecture for concurrent execution  
-- Develop a real-time interruption feature in which the user can speak to interrupt the system at any time
----
+<Entry
+  date="June 2026 – Sept. 2026"
+  location="Évry, France"
+  title="Télécom SudParis"
+  subtitle="AI Engineer Intern"
+>
 
-## 🚀 Projects
+***Topic: Multimodal data fusion for the recognition of Activities of Daily Living (ADL)***
 
-### Breast Cancer Survival Classification using Clinical & Genomic Data | R  
-*Nov 2025 – Dec 2025*
+- Designed a modular Python pipeline (cleaning, data exploration and visualization, feature engineering, unsupervised learning) for activity discovery from unlabelled binary and continuous sensor streams
+- Developed a complementary zero-shot recognition approach using large language models (LLM), predicting daily activities directly from unlabelled sensor data
 
-- Analyzed high-dimensional clinical and genomic data from 1,230 patients (24 clinical features and 5,000 mRNA transcripts), performing differential expression analysis, multivariate statistical testing, dimensionality reduction, class imbalance handling with SMOTE, and implementing six penalized regression models with embedded feature selection
+</Entry>
 
-### Credit Score Analysis and Prediction | Python, Machine Learning  
-*Nov 2025 – Dec 2025*
+<Entry
+  date="May 2025 – Aug. 2025"
+  location="Phnom Penh, Cambodia"
+  title="AI Farm Robotics"
+  subtitle="AI Engineer Intern"
+>
 
-- Conducted end-to-end credit risk analysis by applying statistical inference, exploratory data analysis, dimensionality reduction, and customer segmentation, and built and evaluated supervised learning models for credit default classification and credit score regression using standard performance metrics
+***Title: Development of a speech-to-speech conversational agent with real-time interruption***
 
-### Implementation of the Image Processing Program | C  
-*Dec 2024 – Jan 2025*
+- Developed a modular automatic speech recognition (ASR), large language model (LLM) and text-to-speech (TTS) system
+- Designed a real-time speech-to-speech pipeline integrating ASR, LLM and TTS with a multi-threaded architecture allowing concurrent execution, and developed a real-time interruption feature
 
-- Implemented image reading and writing with resizing, brightness and contrast adjustment, filtering, and color conversion  
-- Applied nearest neighbor and bilinear interpolation to optimize image resampling  
+</Entry>
 
----
+## Projects
 
-## 💻 Skills
+<Entry
+  date="April 2026 – May 2026"
+  title="Natural Language Processing and Analysis of “The Little Prince”"
+  subtitle="Python, NLP"
+>
 
-**Programming Languages:**  
-Python, R, C, C++, Java, OCAML, SQL, HTML, CSS, PHP  
+Complete NLP pipeline (tokenization, word embeddings with Word2Vec, neural networks with self-attention, CamemBERT Transformers) and integration of the Google Gemini LLM for text completion and summary generation.
 
-**Libraries:**  
-NumPy, Pandas, Matplotlib, Seaborn, Web Scraping, Scikit-learn, PyTorch  
+</Entry>
 
-**Technologies / Developer Tools:**  
-LaTeX, Microsoft Office, Jupyter Notebook, Git, VS Code, Eclipse  
+<Entry
+  date="Nov. 2025 – Jan. 2026"
+  title="Breast Cancer Survival Classification from Clinical and Genomic Data"
+  href="https://github.com/VeasnaRa/Breast-Cancer-Classification"
+  subtitle="R"
+>
 
-**Operating Systems:**  
-Debian, Ubuntu, Windows  
+Analysis of high-dimensional clinical and genomic data, including multivariate statistical testing, dimensionality reduction, class imbalance handling (SMOTE) and penalized regression models with embedded variable selection.
 
-**Soft Skills:**  
-Curious, Independent, Problem-solving, Teamwork  
+</Entry>
 
----
+<Entry
+  date="Oct. 2025 – Dec. 2025"
+  title="Credit Score Analysis and Prediction"
+  href="https://github.com/VeasnaRa/Credit-Score-Analysis-and-Prediction"
+  subtitle="Python, Machine Learning"
+>
 
-## 🏆 Certificates
+Credit risk analysis using statistical methods including data exploration, dimensionality reduction and supervised learning for default classification and credit score regression.
 
-### Hi!ckathon – AI & Data Science Hackathon  
-*December 2025 | · Palaiseau, France*  
-Organized by Hi! PARIS Center – AI for Science, Business & Society  
+</Entry>
 
-### Data Science Camp  
-*January 2024 | · Phnom Penh, Cambodia*  
-Organized by UNESCO UNITWIN and the Ministry of Education, Republic of Korea  
+## Skills
 
----
+<Block>
 
-## 🌍 Languages
+**Programming Languages:** Python, R, C, C++, Java, OCaml, SQL, HTML, CSS, PHP
 
-- **Khmer:** Native proficiency  
-- **English:** Professional working proficiency  
-- **French:** Limited working proficiency  
+**Data Science & AI:** NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, PyTorch, TensorFlow, Keras, Poetry
 
----
+**Tools:** LaTeX, Git, Jupyter, VS Code, Eclipse, Debian, Ubuntu, Windows, Hugging Face Transformers
 
-## 🎯 Others
+**Soft Skills:** Curiosity, Creativity, Problem-solving, Teamwork
 
-**Club:** Participation in the DataScIIEnce association at ENSIIE  
-**Hobbies:** Traveling, Football, Volleyball
+</Block>
+
+## Certificates
+
+<Entry
+  date="December 2025"
+  location="Palaiseau, France"
+  title="Hi!ckathon – AI & Data Science Hackathon"
+  subtitle="Organized by the Hi! PARIS Center – AI for Science, Business and Society"
+/>
+
+<Entry
+  date="January 2024"
+  location="Phnom Penh, Cambodia"
+  title="Data Science Camp"
+  subtitle="Organized by UNESCO UNITWIN and the Ministry of Education, Republic of Korea"
+/>
+
+## Languages
+
+<Block>
+
+- **Khmer:** Native
+- **French:** Intermediate
+- **English:** Fluent
+
+</Block>
+
+## Interests & Extracurricular
+
+<Block>
+
+**Club:** Member of the DataScIIEnce association at ENSIIE
+
+**Hobbies:** Travelling, football and volleyball
+
+</Block>
